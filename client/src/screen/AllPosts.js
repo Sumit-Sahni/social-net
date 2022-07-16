@@ -15,10 +15,10 @@ const AllPost = () => {
     const [posts, setPosts] = useState([])
 
   //  Get all posts from the database
+
    useEffect(()=>{
      const getPost = async () =>{
      const {data} = await axios.get(`/api/posts/fetchallposts`);
-      console.log(data);
        setPosts(data);
      }
      getPost();
@@ -31,8 +31,7 @@ const AllPost = () => {
      userId : JSON.parse(auth)._id,
    }
     await axios.put(`/api/posts/${id}/likes/`, data);
-    window.location.reload(); 
-     
+    window.location.reload();    
  }
 
       
