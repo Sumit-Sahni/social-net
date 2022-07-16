@@ -49,7 +49,7 @@ const AllPost = () => {
                     
                         <div className="row">
                                 <div className="col-lg-12 col-12">
-                                <div className="card w-100 mt-2" style={{"width":"45rem", "height":"25rem" }}>
+                                <div className="card w-100 mt-2" >
                                  <div className="card-body ">
                                     <div className="row w-50">
                                     <div className="col-md-12 d-flex  align-items-center">
