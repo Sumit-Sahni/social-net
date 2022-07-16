@@ -22,7 +22,7 @@ h1{
   color : #0d617f;
   font-family: 'Amatic SC', cursive;
 }
- @media (max-width: 468px) {
+ @media (max-width: 412px) {
   h1{
     font-size: 7rem;
   }
