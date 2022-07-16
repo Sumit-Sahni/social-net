@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState,} from "react";
 import axios from "axios";
 import moment from "moment";
+import { NavLink } from "react-router-dom";
+
 
 function shuffle(array) {
   for(let i = array.length-1; i >0; i--){
@@ -58,9 +60,11 @@ const AllPost = () => {
                                  <div className="card-body ">
                                     <div className="row w-50">
                                     <div className="col-md-12 d-flex  align-items-center">
+                                       <NavLink to={`/viewprofile/${post.user._id}`}>
                                         <div>
-                                         <img src={`${post.user.pic}`} alt={"img"} style={{width:"50px", height:"50px", borderRadius:"50%", objectFit:"cover"}}></img>
+                                           <img src={`${post.user.pic}`} alt={"img"} style={{width:"50px", height:"50px", borderRadius:"50%", objectFit:"cover"}}></img>
                                         </div >
+                                      </NavLink>
                                         <div className="mx-3">
                                         <p>by. {post.user.name.toUpperCase()}</p>
                                         </div>
@@ -72,7 +76,7 @@ const AllPost = () => {
                                     <div className="col-lg-12 d-flex justify-content-between ">
                                       <div className="d-flex flex-row align-items-center ">
                                             <div>
-                                             <i onClick={()=>getLikes(post._id)}style={{"cursor":"pointer"}} >
+                                             <i onClick={()=>getLikes(post._id)}style={{"cursor":"pointer"}}>
                                              {
                                                 post.likes.includes(`${JSON.parse(auth)._id}`) ? <i className="fa-lg bi bi-suit-heart-fill mx-2" style={{"color":"red"}}></i> :<i className="fa-lg bi bi-suit-heart mx-2" ></i>
                                              }

@@ -148,7 +148,7 @@ const ViewProfile = ({p}) => {
                                                 <div className="col-md-12 p-2 d-flex flex-column  ">
                                                     <div className="d-flex flex-row  justify-content-between  my-2">
                                                         <h5>{post.title}</h5>
-                                                        <p>{moment(post.date).format("MMM Do YYYY")}</p>
+                                                        <p>{moment(post.created_at).format("MMM Do YYYY")}</p>
                                                     </div>
                                                     <div className="d-flex flex-column  justify-content-center  my-2">
                                                         <p>{post.article}</p>
