@@ -92,7 +92,7 @@ const MyProfile = () => {
                 return(
                     <StyledProfile className="container mt-5 py-3 p-4" key={index}>
                         <div className="row justify-content-start ">
-                            <div className="col-md-3  p-2 d-flex flex-column  ">
+                            <div className="col-md-6 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
                                 <img src={`${users.pic}`} alt={"img"} style={{width:"180px", height:"180px", borderRadius:"50%", objectFit:"cover"}}></img>
                                 </div>
@@ -158,7 +158,7 @@ const MyProfile = () => {
 
                             </div>
                             </div>
-                            <div className="col-md-4 col-lg-5 p-6 mt-5">
+                            <div className="col-md-5 col-lg-5 p-6 mt-5">
                                 <AddPost/>
                             </div>
                         </div>
@@ -166,13 +166,13 @@ const MyProfile = () => {
                         <div className="row justify-content-center mt-5">
                         <h1 className="text-center position-sticky pb-3">My Posts</h1>
                         <hr></hr>
-                        <div className="col-md-5 p-5 col-lg-12 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
+                        <div className="col-md-12 p-5 col-lg-12 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
                             
                                   {
                                     Posts.map((post, index) =>{
                                         return(
                                           <div className="row justify-content-start " key={index}>
-                                          <div className="col-md-12 p-2 d-flex flex-column  ">
+                                          <div className="col-md-12 col-lg-12 p-2 d-flex flex-column  ">
                                               <div className="d-flex flex-row  justify-content-between  my-2">
                                                   <h5>{post.title}</h5>
                                                   <p>{moment(post.date).format("MMM Do YYYY")}</p>
@@ -201,7 +201,7 @@ const MyProfile = () => {
                 )
             }) 
          }
-        
+          <Footer className="mt-5"/>
          </>
     );
 }

@@ -80,7 +80,7 @@ const ViewProfile = ({p}) => {
                 return(
                     <StyledProfile className="container mt-5 p-5" key={index}>
                         <div className="row justify-content-start ">
-                            <div className="col-md-3  p-2 d-flex flex-column  ">
+                            <div className="col-md-12 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
                                 <img src={`${users.pic}`} alt={"img"} style={{width:"180px", height:"180px", borderRadius:"50%", objectFit:"cover"}}></img>
                                 </div>
@@ -124,7 +124,7 @@ const ViewProfile = ({p}) => {
                                 <div className="row ">
                                     <div className="col-md-12 d-flex flex-row ">
                                       <div>
-                                        <p>Followers: {users.followers.length}</p>
+                                        <p><strong>{users.followers.length}</strong> Follower</p>
                                       </div>
                                         <div style={{cursor:'pointer'}}></div>
                                     </div>
@@ -132,14 +132,14 @@ const ViewProfile = ({p}) => {
                                 <div className="row ">
                                     <div className="col-md-12 d-flex flex-row ">
                                       <div>
-                                        <p>Following: {users.followings.length}</p>
+                                        <p><strong>{users.followings.length}</strong> Following</p>
                                       </div>
                                         <div style={{cursor:'pointer'}}></div>
                                     </div>
                                 </div> 
                             </div>
                             </div>
-                            <div className="col-md-9 p-5 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
+                            <div className="col-md-12 col-lg-6 col-12  p-2 " style={{"overflow-y": "auto", height: "60vh", width:"115vh", border: "none"}}>
                                 <div>
                                {
                                     posts.map((post, index) =>{
