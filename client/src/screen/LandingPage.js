@@ -10,19 +10,25 @@ const SinhgadFace = styled.div`
 font-family: "Times New Roman", Times, serif;
    font-size: 2rem;
    color: 0000;
+   font-family: 'Amatic SC', cursive;
     // font-weight:bold;
 `
 
 const TotalUser = styled.div`
+  padding: 0.5rem;
 h1{
   font-size: 12rem;
   font-weight: bold!important;
   color : #0d617f;
   font-family: 'Amatic SC', cursive;
 }
-  
+ @media (max-width: 468px) {
+  h1{
+    font-size: 7rem;
+  }
 `
 const TotalUserCount = styled.div`
+ padding: 0.5rem;
 h1{
   font-size: 8rem;
   font-weight: lighter;
@@ -60,8 +66,8 @@ const LandingPage = () => {
             style={{width: "100px", height: "100px"}}
             alt="logo"
            />
-   <NavLink to="/" className="navbar-brand mx-2 "><SinhgadFace className="h-6">Sinhgad Face</SinhgadFace></NavLink>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <NavLink to="/" className="navbar-brand  "><SinhgadFace className="">Sinhgad Face</SinhgadFace></NavLink>
+    <button className="navbar-toggler d-none d-sm-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -78,7 +84,7 @@ const LandingPage = () => {
 
          <div className="container mb-5">
             <div className="row">
-                <div className="col-md-6   d-flex flex-column  align-items-start">
+                <div className="col-md-6  col-12 d-flex flex-column  align-items-start">
                   <TotalUser>
                    <h1>Total Users</h1>
                   </TotalUser>
@@ -86,7 +92,7 @@ const LandingPage = () => {
                     <h1 className="display-1 ">{count}...</h1>
                   </TotalUserCount>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 col-12">
                      <LoginScreen/>
                 </div>
             </div>
