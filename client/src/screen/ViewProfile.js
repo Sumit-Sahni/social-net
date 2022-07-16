@@ -55,9 +55,9 @@ const ViewProfile = ({p}) => {
         <>
    
              <Fragment>
-            <nav className="navbar navbar-expand-lg bg-body p-2 my-2">
+            <nav className="navbar navbar-expand-lg bg-dark p-4">
   <div className="container-fluid">
-  <NavLink to="/welcome" className="navbar-brand">Back</NavLink>
+  <NavLink to="/welcome" className="navbar-brand text-white">Back</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

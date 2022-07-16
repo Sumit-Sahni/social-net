@@ -31,6 +31,7 @@ const Welcome = () => {
       </nav>  
 
        <HomeAndUsers/>
+       
       </Fragment>
    
     )

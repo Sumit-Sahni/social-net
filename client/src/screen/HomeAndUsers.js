@@ -17,6 +17,7 @@ const ProfileScroll = styled.div`
   overflow-y: scroll;
   height: 65vh;
   bordr: none;
+  
 
   @media (max-width: 480px) {
     height: 45vh;
@@ -36,13 +37,13 @@ const HomeAndUsers = () => {
        <>
            <div className="container ">
           <div className="row">
-            <div  className="col-md-3  col-12" >
-            <ProfileScroll>
-                 <FetchAllUsers/>
+            <div  className="col-md-12 col-lg-4 col-12 " >
+                <ProfileScroll>
+                  <FetchAllUsers/>
                  </ProfileScroll>
             </div>
             
-            <div className="col-md-6 col-lg-6 col-12 col-5 text-center mt-3 ">
+            <div className="col-md-12 col-lg-6 col-12 col-5 text-center mt-3 ">
                 <h1 className="py-4">Timeline</h1>
                 <TimelineScroll>
                   <AllPosts/>
