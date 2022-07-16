@@ -82,9 +82,12 @@ const MyProfile = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        {/* <li className="nav-item">
-          <NavLink to="/" className="nav-link active" aria-current="page">About</NavLink>
-        </li> */}
+        <li className="nav-item">
+        <button className="nav-link   bg-dark text-white " style={{border:"none"}} onClick={()=>{
+           localStorage.removeItem("userInfo");
+               window.location.href = "/";
+           }}>Sign out</button> 
+        </li>
       </ul>
       <ul  className="navbar-nav me-auto mb-2 mb-lg-0">
         

@@ -119,7 +119,7 @@ const RegisterScreen = () => {
 
     <Fragment>
         <Fragment>
-            <nav className="navbar navbar-expand-lg  bg-body navbar-fixed-top p-5">
+            <nav className="navbar navbar-expand-lg  bg-body navbar-fixed-top p-4">
   <div className="container-fluid">
          <img
            src="https://images.shiksha.com/mediadata/images/1571990208phpCoii2i.jpg"
@@ -171,7 +171,7 @@ const RegisterScreen = () => {
           <input className="form-control w-50" id="file"
            onChange={(e)=> postDetail(e.target.files[0])}
             type="file"
-            placeholder="Upload Image"
+            placeholder="Profile Picture"
           />  
         </div>
 

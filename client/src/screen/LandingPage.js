@@ -25,7 +25,7 @@ h1{
 }
  @media (max-width: 412px) {
   h1{
-    font-size: 7rem;
+    font-size: 6rem;
   }
 `
 const TotalUserCount = styled.div`
@@ -34,7 +34,8 @@ h1{
   font-size: 8rem;
   font-weight: lighter;
   color : 0000;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Rubik Moonrocks', cursive;
 }
 
 `
@@ -82,7 +83,7 @@ const LandingPage = () => {
                    <h1>Total Users</h1>
                   </TotalUser>
                   <TotalUserCount>
-                    <h1 className="display-1 ">{count}...</h1>
+                    <h1 className="display-1 ">{count}</h1>
                   </TotalUserCount>
                 </div>
                 <div className="col-md-6 col-12">
