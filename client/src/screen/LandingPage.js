@@ -58,6 +58,7 @@ const LandingPage = () => {
          <img
            src="https://images.shiksha.com/mediadata/images/1571990208phpCoii2i.jpg"
             style={{width: "100px", height: "100px"}}
+            alt="logo"
            />
    <NavLink to="/" className="navbar-brand mx-2 "><SinhgadFace className="h-6">Sinhgad Face</SinhgadFace></NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

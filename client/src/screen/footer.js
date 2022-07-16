@@ -11,13 +11,13 @@ const Footer = () => {
         <div className="col-md-4 offset-md-4">
             <h5>Developer</h5>
             <h6>Sumit Sahni</h6>
-        <a href={"#"}><i className="fa fa-facebook p-2"></i></a>
+        <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-facebook p-2"></i></a>
        
-       <a href={"#"}><i className="fa fa-instagram  p-2"></i></a>
+       <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-instagram  p-2"></i></a>
       
-       <a href={"#"}><i className="fa fa-youtube  p-2"></i></a>
+       <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-youtube  p-2"></i></a>
       
-       <a href={"#"}><i className="fa fa-twitter  p-2"></i></a>
+       <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-twitter  p-2"></i></a>
         </div>
        
         </div>

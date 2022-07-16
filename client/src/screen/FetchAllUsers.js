@@ -1,8 +1,6 @@
 import {React} from "react";
-import { useState, useEffect, Fragment} from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
-import moment from "moment"; 
-import { HomeContainer } from "./styled/Home.styled";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -75,9 +73,9 @@ const FetchAllUsers = () => {
     return(
 
         <>
-            <form class="d-flex position-sticky mx-2 my-2" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search Name" aria-label="Search"   onChange={(e) => searchItems(e.target.value)}/>
-                <button class="btn btn-outline-primary" type="submit">Search</button>
+            <form className="d-flex position-sticky mx-2 my-2" role="search">
+                <input className="form-control me-2" type="search" placeholder="Search Name" aria-label="Search"   onChange={(e) => searchItems(e.target.value)}/>
+                <button className="btn btn-outline-primary" type="submit">Search</button>
               </form>
 
 
@@ -99,12 +97,12 @@ const FetchAllUsers = () => {
                 </div>
                 </div>
                             <NavLink to={`/viewprofile/${users._id}`}>
-                               <button type="button" class="btn btn-secondary p-2 mx-1">View Profile</button>
+                               <button type="button" className="btn btn-secondary p-2 mx-1">View Profile</button>
                             </NavLink>
                             {
-                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleFollow(users._id)} type="button" class="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"#0d6efd"}}>Following</button>:<button onClick={()=>handleFollow(users._id)} type="button" class="btn btn-secondary p-2 mx-1">Follow</button>
+                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"#0d6efd"}}>Following</button>:<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1">Follow</button>
                             }
-                            <button onClick={()=>handleUnFollow(users._id)} type="button" class="btn btn-secondary mt-2 mx-1" >Unfollow</button>
+                            <button onClick={()=>handleUnFollow(users._id)} type="button" className="btn btn-secondary mt-2 mx-1" >Unfollow</button>
            
         </StyledProfile>
                
@@ -130,13 +128,13 @@ const FetchAllUsers = () => {
                             </div>
                            
                             <NavLink to={`/viewprofile/${users._id}`}>
-                            <button type="button" class="btn btn-secondary p-2 mx-1">View Profile</button>
+                            <button type="button" className="btn btn-secondary p-2 mx-1">View Profile</button>
                             </NavLink>
         
                             {
-                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleFollow(users._id)} type="button" class="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"#0d6efd"}}>Following</button>:<button onClick={()=>handleFollow(users._id)} type="button" class="btn btn-secondary p-2 mx-1">Follow</button>
+                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"#0d6efd"}}>Following</button>:<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1">Follow</button>
                             }
-                            <button onClick={()=>handleUnFollow(users._id)} type="button" class="btn btn-secondary mt-1 mx-1 p-2" >Unfollow</button>
+                            <button onClick={()=>handleUnFollow(users._id)} type="button" className="btn btn-secondary mt-1 mx-1 p-2" >Unfollow</button>
                                 
                     </StyledProfile>
                 )

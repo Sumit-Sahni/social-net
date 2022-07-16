@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loading from "../Components/Loading";
 import { NavLink} from "react-router-dom";
-import styled from "styled-components";
+
 
 
 
@@ -124,6 +124,7 @@ const RegisterScreen = () => {
          <img
            src="https://images.shiksha.com/mediadata/images/1571990208phpCoii2i.jpg"
             style={{width: "100px", height: "100px"}}
+             alt="logo"
            />
     <NavLink to="/" className="navbar-brand mx-5">Home</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

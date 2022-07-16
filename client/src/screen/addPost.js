@@ -1,8 +1,7 @@
 import {React} from "react";
-import  {useEffect, useState, Fragment} from "react";
-import { NavLink } from 'react-router-dom';
+import  {useState} from "react";
 import axios from "axios";
-import styled from "styled-components";
+
 
 
 const AddPost = () => {

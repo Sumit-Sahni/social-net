@@ -32,7 +32,7 @@ const ViewProfile = ({p}) => {
          
         }
         getUser();
-    },[likes]) 
+    }, [id]) 
 
    
     
