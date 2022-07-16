@@ -5,12 +5,7 @@ import moment from "moment";
 import { NavLink } from "react-router-dom";
 
 
-function shuffle(array) {
-  for(let i = array.length-1; i >0; i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-}
+
 
 
 const AllPost = () => {
@@ -25,9 +20,6 @@ const AllPost = () => {
      const {data} = await axios.get(`/api/posts/fetchallposts`);
       console.log(data);
        setPosts(data);
-       console.log(posts);
-       console.log(shuffle([posts]));
-      
      }
      getPost();
  },[])
