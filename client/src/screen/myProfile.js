@@ -158,12 +158,16 @@ const MyProfile = () => {
 
                             </div>
                             </div>
-                            <div className="col-md-4 col-lg-3 p-6 mt-5">
+                            <div className="col-md-4 col-lg-5 p-6 mt-5">
                                 <AddPost/>
                             </div>
-                        
-                            <div className="col-md-5 p-5 col-lg-6 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
-                            <h1 className="text-center position-sticky pb-5">My Posts</h1>
+                        </div>
+
+                        <div className="row justify-content-center mt-5">
+                        <h1 className="text-center position-sticky pb-3">My Posts</h1>
+                        <hr></hr>
+                        <div className="col-md-5 p-5 col-lg-12 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
+                            
                                   {
                                     Posts.map((post, index) =>{
                                         return(
