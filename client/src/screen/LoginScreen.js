@@ -66,7 +66,7 @@ const submitHandler =  async(e) => {
             <div className="mb-3 ">
                  <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
 
-                 <input className="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 <input className="form-control w-70" id="exampleInputEmail1" aria-describedby="emailHelp"
                      type="email" 
                      value={email}
                      placeholder="Email"
@@ -78,7 +78,7 @@ const submitHandler =  async(e) => {
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
 
-               <input  className="form-control w-50" id="exampleInputPassword1"
+               <input  className="form-control w-70" id="exampleInputPassword1"
                    type="password" 
                    value={password}
                    placeholder="password"

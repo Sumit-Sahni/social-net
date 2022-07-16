@@ -139,13 +139,13 @@ const RegisterScreen = () => {
         </div>
         </Fragment>
     {loading && <Loading />}
-    <form className="container  py-1 px-4" onSubmit={submitHandler}>
-    <div className="row ">
-        <div className="col-md-6">
+    <form className="container " onSubmit={submitHandler}>
+    <div className="row p-4">
+        <div className="  col-md-6 col-12 ">
         <div className="mb-3 ">
            <label htmlFor="name" className="form-label">Name</label>
            <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-           <input className="form-control w-50" id="name" aria-describedby="emailHelp"
+           <input className="form-control w-70" id="name" aria-describedby="emailHelp"
               type="name" 
                 value={name}
                 placeholder="Full Name"
@@ -154,10 +154,10 @@ const RegisterScreen = () => {
            
        </div>
         </div>
-        <div className="col-md-6">
+        <div className=" col-12 col-md-6 mb-3">
         <label htmlFor="email" className="form-label">Email address</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-           <input className="form-control w-50" id="email" aria-describedby="emailHelp"
+           <input className="form-control w-70" id="email" aria-describedby="emailHelp"
                type="email" 
                value={email}
                placeholder="Email"
@@ -165,10 +165,10 @@ const RegisterScreen = () => {
              />
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
         <label htmlFor="file" className="form-label">Profile picture</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-          <input className="form-control w-50" id="file"
+          <input className="form-control w-70" id="file"
            onChange={(e)=> postDetail(e.target.files[0])}
             type="file"
             placeholder="Profile Picture"
@@ -178,7 +178,7 @@ const RegisterScreen = () => {
         <div className="col-md-6 mb-3">
         <label htmlFor="college" className="form-label">College</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-           <input className="form-control w-50" id="college" aria-describedby="emailHelp"
+           <input className="form-control w-70" id="college" aria-describedby="emailHelp"
               type="name" 
                 value={college}
                 placeholder="College Name"
@@ -188,7 +188,7 @@ const RegisterScreen = () => {
         <div className="col-md-6 mb-3">
         <label htmlFor="about" className="form-label">About</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-           <input className="form-control w-50" id="about" aria-describedby="emailHelp"
+           <input className="form-control w-70" id="about" aria-describedby="emailHelp"
                type="name" 
                 value={about}
                 placeholder="About"
@@ -201,7 +201,7 @@ const RegisterScreen = () => {
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
           <input 
           id='OpenDate'
-          className="form-control w-50"
+          className="form-control w-70"
           name='date' 
           type='date'
           value={date}
@@ -213,25 +213,25 @@ const RegisterScreen = () => {
         <div className="col-md-6 mb-3">
         <label htmlFor="gender" className="form-label">Gender</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-            <select onChange={(e)=> setGender(e.target.value)}  className="form-control w-50" id="gender" >
+            <select onChange={(e)=> setGender(e.target.value)}  className="form-control w-70" id="gender" >
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
         <label htmlFor="current-password" className="form-label">Password</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-          <input  className="form-control w-50" id="current-password"
+          <input  className="form-control w-70" id="current-password"
              type="password" 
              value={password}
              placeholder="password"
              onChange={(e)=>setPassword(e.target.value)}
             />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
         <label htmlFor="confpassword" className="form-label">CNF Password</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-          <input  className="form-control w-50" id="confpassword"
+          <input  className="form-control w-70" id="confpassword"
                type="password" 
                value={conform}
                placeholder="confirm password"
@@ -239,7 +239,7 @@ const RegisterScreen = () => {
             />
           </div>
     </div>
-      <button type="submit" className="btn btn-primary my-4">Register</button>
+      <button type="submit" className="btn btn-primary my-4 mx-4">Register</button>
       <NavLink to="/login"><button  className="btn btn-primary mx-2">Login</button></NavLink>
  </form>
     
