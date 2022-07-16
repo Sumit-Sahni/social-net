@@ -78,7 +78,7 @@ const LandingPage = () => {
 
          <div className="container mb-5">
             <div className="row">
-                <div className="col-md-6  col-12 d-flex flex-column  align-items-start">
+                <div className="col-md-4 col-lg-6 col-12 d-flex flex-column  align-items-start">
                   <TotalUser>
                    <h1>Total Users</h1>
                   </TotalUser>
@@ -86,7 +86,7 @@ const LandingPage = () => {
                     <h1 className="display-1 ">{count}</h1>
                   </TotalUserCount>
                 </div>
-                <div className="col-md-6 col-12">
+                <div className="col-md-12 col-12 col-lg-6">
                      <LoginScreen/>
                 </div>
             </div>
