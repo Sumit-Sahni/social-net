@@ -17,10 +17,11 @@ font-family: "Times New Roman", Times, serif;
 const TotalUser = styled.div`
   padding: 0.5rem;
 h1{
-  font-size: 12rem;
+  font-size: 10rem;
   font-weight: bold!important;
   color : #0d617f;
   font-family: 'Amatic SC', cursive;
+  font-family: 'Rubik Moonrocks', cursive;
 }
  @media (max-width: 412px) {
   h1{
@@ -66,16 +67,8 @@ const LandingPage = () => {
             style={{width: "100px", height: "100px"}}
             alt="logo"
            />
-   <NavLink to="/" className="navbar-brand  "><SinhgadFace >Sinhgad Face</SinhgadFace></NavLink>
-    <button className="navbar-toggler d-none d-sm-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      
-         
-      
-      </ul>
+   
+    <div className="collapse navbar-collapse">
     </div>
   </div>
             </nav>
