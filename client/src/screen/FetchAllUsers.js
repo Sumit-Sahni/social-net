@@ -68,7 +68,15 @@ const FetchAllUsers = () => {
         }
     }
 
-
+//    *******************************************LIKE***********************************************************************************
+   const getLikes = async (id) =>{
+    const data = {
+      userId : JSON.parse(auth)._id,
+    }
+     await axios.put(`/api/posts/${id}/likes/`, data);
+     window.location.reload(); 
+      
+  }
 
     return(
 

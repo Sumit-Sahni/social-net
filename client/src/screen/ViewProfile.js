@@ -154,9 +154,9 @@ const ViewProfile = ({p}) => {
                                                         <p>{post.article}</p>
                                                          <div className="col-1 d-flex flex-row align-items-center ">
                                                           
-                                                          <i onClick={()=>getLikes(post._id)}>
+                                                          <i onClick={()=>getLikes(post._id)}style={{"cursor":"pointer"}} >
                                                              {
-                                                                post.likes.includes(`${JSON.parse(auth)._id}`) ? <i className="bi bi-suit-heart-fill mx-2" style={{"color":"red"}}></i> :<i className="bi bi-suit-heart mx-2" ></i>
+                                                                post.likes.includes(`${JSON.parse(auth)._id}`) ? <i className="fa-lg bi bi-suit-heart-fill mx-2" style={{"color":"red"}}></i> :<i className="fa-lg bi bi-suit-heart mx-2" ></i>
                                                              }
                                                             </i> 
                                                           <div className="mt-3"> <p>{post.likes.length}</p></div>

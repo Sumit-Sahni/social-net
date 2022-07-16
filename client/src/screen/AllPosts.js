@@ -14,10 +14,8 @@ function shuffle(array) {
 const AllPost = () => {
 
   console.log();
-    const [posts, setPosts] = useState([]);
-
-
-    
+    const auth = localStorage.getItem("userInfo");
+    const [posts, setPosts] = useState([])
 
   //  Get all posts from the database
    useEffect(()=>{
@@ -32,9 +30,16 @@ const AllPost = () => {
      getPost();
  },[])
 
-  // Get all likes from the database
 
-      
+  // *******************************************LIKE***********************************************************************************
+  const getLikes = async (id) =>{
+   const data = {
+     userId : JSON.parse(auth)._id,
+   }
+    await axios.put(`/api/posts/${id}/likes/`, data);
+    window.location.reload(); 
+     
+ }
 
       
 
@@ -67,7 +72,11 @@ const AllPost = () => {
                                     <div className="col-lg-12 d-flex justify-content-between ">
                                       <div className="d-flex flex-row align-items-center ">
                                             <div>
-                                             <i className="bi bi-heart-fill" style={{"color":"red"}}></i>
+                                             <i onClick={()=>getLikes(post._id)}style={{"cursor":"pointer"}} >
+                                             {
+                                                post.likes.includes(`${JSON.parse(auth)._id}`) ? <i className="fa-lg bi bi-suit-heart-fill mx-2" style={{"color":"red"}}></i> :<i className="fa-lg bi bi-suit-heart mx-2" ></i>
+                                             }
+                                             </i>
                                             </div>
                                             <div className="mx-2 mt-2">
                                                <p>{post.likes.length}</p>
