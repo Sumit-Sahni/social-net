@@ -66,7 +66,7 @@ const LandingPage = () => {
             style={{width: "100px", height: "100px"}}
             alt="logo"
            />
-   <NavLink to="/" className="navbar-brand  "><SinhgadFace className="">Sinhgad Face</SinhgadFace></NavLink>
+   <NavLink to="/" className="navbar-brand  "><SinhgadFace >Sinhgad Face</SinhgadFace></NavLink>
     <button className="navbar-toggler d-none d-sm-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

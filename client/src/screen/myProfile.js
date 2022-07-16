@@ -5,7 +5,8 @@ import axios from "axios";
 import styled from "styled-components";
 import moment from "moment"; 
 import { HomeContainer } from "./styled/Home.styled";
-import AddPost from "./addPost";
+import AddPost from "./addPost"
+import Footer from "./footer";
 
 
 
@@ -17,6 +18,7 @@ const StyledProfile = styled.div`
 const MyProfile = () => {
     const auth = localStorage.getItem("userInfo");
     const [User, setUser] = useState([]);
+    const [Posts, setPosts] = useState();
 
     
    useEffect(()=>{
@@ -24,6 +26,8 @@ const MyProfile = () => {
     const {data} = await axios.get(`/api/users/userbyid/${JSON.parse(auth)._id}`);
      console.log(data);
      setUser([data]);
+      setPosts(data.posts);
+      console.log(data.posts);
     }
     getUser();
   },[])
@@ -65,7 +69,7 @@ const MyProfile = () => {
             <nav className="navbar navbar-expand-lg bg-dark p-4 ">
   <div className="container-fluid">
   <NavLink to="/welcome" className="navbar-brand text-white">Home</NavLink>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button className="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -128,6 +132,7 @@ const MyProfile = () => {
                                        </div>
                                     </div>
                                 </div>
+                                
                                 <div className="row">
                                     <div className="col-md-12 d-flex flex-row   ">
                                       <div>
@@ -138,19 +143,61 @@ const MyProfile = () => {
                                        </div>
                                     </div>
                                 </div> 
+
+                                <div className="row">
+                                    <div className="col-md-12 d-flex flex-row   ">
+                                      <div>
+                                        <p><strong>{users.followers.length}</strong>  _Followers </p>
+                                    </div>               
+                                    </div>
+
+                                    <div>
+                                        <p><strong>{users.followings.length}</strong>  _Following</p>
+                                    </div>
+                                </div> 
+
                             </div>
                             </div>
-                            <div className="col-md-4 p-6 mt-5">
+                            <div className="col-md-4 col-lg-3 p-6 mt-5">
                                 <AddPost/>
                             </div>
-                            <div className="col-md-5 p-5 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
-                              
+                        
+                            <div className="col-md-5 p-5 col-lg-6 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
+                            <h1 className="text-center position-sticky pb-5">My Posts</h1>
+                                  {
+                                    Posts.map((post, index) =>{
+                                        return(
+                                          <div className="row justify-content-start " key={index}>
+                                          <div className="col-md-12 p-2 d-flex flex-column  ">
+                                              <div className="d-flex flex-row  justify-content-between  my-2">
+                                                  <h5>{post.title}</h5>
+                                                  <p>{moment(post.date).format("MMM Do YYYY")}</p>
+                                              </div>
+                                              <div className="d-flex flex-column  justify-content-center  my-2">
+                                                  <p>{post.article}</p>
+                                                   <div className="col-1 d-flex flex-row align-items-center ">
+                                                    
+                                            
+                                                       {
+                                                          post.likes.includes(`${JSON.parse(auth)._id}`) ? <i className="bi bi-suit-heart-fill mx-2" style={{"color":"red"}}></i> :<i className="bi bi-suit-heart mx-2" ></i>
+                                                       }
+                                                     
+                                                    <div className="mt-3"> <p>{post.likes.length}</p></div>
+                                                   </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                        )
+                                    })
+                                  }
                             </div>
                         </div>
+                        
                     </StyledProfile>
                 )
             }) 
          }
+        
          </>
     );
 }
