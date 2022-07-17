@@ -137,7 +137,7 @@ const authUser = asyncHandler(async(req,res)=>{
          const currentUser = await User.findById(req.body.userId);
          if (user.followers.includes(req.body.userId)) {
              await user.updateOne({$pull:{followers: req.body.userId}})
-             await currentUser.updateOne({$pull:{followings: req.body.userId}})
+             await currentUser.updateOne({$pull:{followings: req.params.id}})
              return res.status(200).json("User has been Unfollowed");
          } else {
           return req.status(401).json("Not Following");

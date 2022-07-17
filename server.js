@@ -47,7 +47,7 @@ app.use('/api/posts', postRoutes);
 
 // _________________________________Deployment to Heroku________________________________________
    
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'development') {
         app.use(express.static(path.join(__dirname, 'client/build')));
         
         app.get('*', (req, res) => {
