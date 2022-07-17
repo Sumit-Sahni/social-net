@@ -44,7 +44,7 @@ const HomeAndUsers = () => {
             </div>
             
             <div className="col-md-12 col-lg-6 col-12 col-5 text-center mt-3 ">
-                <h1 className="py-4" >Timeline</h1>
+                <h1 className="py-4" >Feed</h1>
                 <TimelineScroll>
                   <AllPosts/>
                 </TimelineScroll>
