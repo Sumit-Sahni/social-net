@@ -86,7 +86,7 @@ const LandingPage = () => {
                     <h1 className="display-1 ">{count}</h1>
                   </TotalUserCount>
                 </div>
-                <div className="col-md-12 col-12 col-lg-6">
+                <div className="col-md-12 col-12 col-lg-6 col-12">
                      <LoginScreen/>
                 </div>
             </div>
