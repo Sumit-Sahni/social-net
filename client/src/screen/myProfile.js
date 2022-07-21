@@ -11,6 +11,7 @@ import Footer from "./footer";
 
 
 
+
 const StyledProfile = styled.div`
     //   border: 1px solid #ccc;
 `
@@ -208,6 +209,8 @@ const MyProfile = () => {
                                   }
                             </div>
                         </div>
+
+                    
                         
                     </StyledProfile>
                 )

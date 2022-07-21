@@ -20,6 +20,7 @@ const AllPost = () => {
      const getPost = async () =>{
      const {data} = await axios.get(`/api/posts/fetchallposts`);
        setPosts(data);
+       console.log(data)
      }
      getPost();
  },[])

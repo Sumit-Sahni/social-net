@@ -89,6 +89,9 @@ const authUser = asyncHandler(async(req,res)=>{
   }
   })
 
+
+
+
   const updateUser = asyncHandler(async(req,res)=>{
     const {id} = req.params;
     const user = await User.findById(id);
@@ -109,13 +112,13 @@ const authUser = asyncHandler(async(req,res)=>{
    
 //  *****************************************FOLLOW/UNFOLLOW*******************************************************
   const followUser = asyncHandler(async(req,res)=>{
-    if(req.body.userId !== req.params.id ){
+   
       try {
          const user = await User.findById(req.params.id);
          const currentUser = await User.findById(req.body.userId);
          if (!user.followers.includes(req.body.userId)) {
              await user.updateOne({$push:{followers: req.body.userId}})
-             await currentUser.updateOne({$push:{followings: req.body.userId}})
+             await currentUser.updateOne({$push:{followings: req.params.id}})
              return res.status(201).json("User has been followed");
          } else {
           return req.status(401).json("Alreay following");
@@ -123,32 +126,22 @@ const authUser = asyncHandler(async(req,res)=>{
       } catch (error) {
           return req.status(500).json(error)
       }
- }
- else{
-    console.log("You cant Follow Yourself")
- }
-  })
+ })
 
 
   const unfollowUser = asyncHandler(async(req,res)=>{
-    if(req.body.userId !== req.params.id ){
-      try {
-         const user = await User.findById(req.params.id);
-         const currentUser = await User.findById(req.body.userId);
-         if (user.followers.includes(req.body.userId)) {
-             await user.updateOne({$pull:{followers: req.body.userId}})
-             await currentUser.updateOne({$pull:{followings: req.params.id}})
-             return res.status(200).json("User has been Unfollowed");
-         } else {
-          return req.status(401).json("Not Following");
-         } 
-      } catch (error) {
-          return req.status(500).json(error)
-      }
- }
- else{
-    console.log("You cant Follow Yourself")
- }
+          try{
+             const user = await User.findById(req.params.id);
+              const currentUser = await User.findById(req.body.userId);
+             if(user.followers.includes(req.body.userId)){
+                 await user.updateOne({$pull:{followers: req.body.userId}})
+                  await currentUser.updateOne({$pull:{followings: req.params.id}})
+                 return res.status(201).json("User has been unfollowed");
+             }
+          }
+          catch(err){
+              console.log(err)
+          }  
   })
 
 module.exports = {
@@ -158,5 +151,6 @@ module.exports = {
      getUserById,
      updateUser,
      followUser,
-     unfollowUser    
+     unfollowUser,
+       
  };

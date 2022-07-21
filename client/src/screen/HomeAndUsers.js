@@ -15,7 +15,7 @@ const ProfileScroll = styled.div`
   background-color: rgba(179, 179, 179, 0.1);
   }
   overflow-y: scroll;
-  height: 65vh;
+  height: 100vh;
   bordr: none;
   
 
