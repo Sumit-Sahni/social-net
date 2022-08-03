@@ -147,11 +147,11 @@ const ViewProfile = ({p}) => {
                                             <div className="row justify-content-start " key={index}>
                                                 <div className="col-md-12 p-2 d-flex flex-column  ">
                                                     <div className="d-flex flex-row  justify-content-between  my-2">
-                                                        <h5>{post.title}</h5>
                                                         <p>{moment(post.created_at).format("MMM Do YYYY")}</p>
                                                     </div>
                                                     <div className="d-flex flex-column  justify-content-center  my-2">
-                                                        <p>{post.article}</p>
+                                                        <h5>{post.title}</h5>
+                                                        <p  style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >{post.article}</p>
                                                          <div className="col-1 d-flex flex-row align-items-center ">
                                                           
                                                           <i onClick={()=>getLikes(post._id)}style={{"cursor":"pointer"}} >

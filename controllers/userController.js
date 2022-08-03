@@ -9,7 +9,6 @@ const generateToken = require("../util/generateToken");
 
   const registerUser = asyncHandler(async(req,res)=>{
    const {name,email,password,pic,describe,date, gender,college , about} = req.body;
-
    const userExist = await User.findOne({email});
 
    if(userExist){
@@ -51,29 +50,60 @@ const generateToken = require("../util/generateToken");
 });
 
 
+
 const authUser = asyncHandler(async(req,res)=>{
 
      const {email, password} = req.body;
-
      const user = await User.findOne({ email });
-  
-     if( user && (await user.matchPassword(password))){
-         res.json({
-             _id: user._id,
-             name:user.name,
-             email:user.email,
-             isAdmin:user.isAdmin,
-             pic:user.pic,
-             token: generateToken(user._id),
-         });
-    }
-     else{
-        res.status(400);
-        throw new Error("Invalid");
+    
+        if( user && (await user.matchPassword(password))){
+          res.json({
+              _id: user._id,
+              name:user.name,
+              email:user.email,
+              isAdmin:user.isAdmin,
+              pic:user.pic,
+              token: generateToken(user._id),
+          });
      }
+      else{
+         res.status(400);
+         throw new Error("Invalid");
+      } 
  });
 
-  const getUser = asyncHandler(async(req,res)=>{
+  
+ const adminAuth = asyncHandler(async(req,res)=>{
+
+  const {email, password} = req.body;
+  const user = await User.findOne({ email });
+
+   if(user.isAdmin === true){
+    if( user && (await user.matchPassword(password))){
+      res.json({
+          _id: user._id,
+          name:user.name,
+          email:user.email,
+          isAdmin:user.isAdmin,
+          pic:user.pic,
+          token: generateToken(user._id),
+      });
+ }
+  else{
+     res.status(400);
+     throw new Error("Invalid");
+  } 
+   }
+   else{
+    res.status(400);
+    throw new Error("Invalid User");
+   }
+ 
+    
+});
+ 
+ 
+ const getUser = asyncHandler(async(req,res)=>{
         const data  = await User.find();
         res.send({data});
 
@@ -144,6 +174,20 @@ const authUser = asyncHandler(async(req,res)=>{
           }  
   })
 
+
+   const deleteUser = asyncHandler(async(req,res)=>{
+    try {
+      const user = await User.findById(req.params.id);
+      if(user){
+        await user.remove();
+        return res.status(200).json("User has been deleted");
+      }
+    } catch (error) {
+        return req.status(500).json(error);
+    }
+  })
+
+    
 module.exports = {
     registerUser,
      authUser,
@@ -152,5 +196,6 @@ module.exports = {
      updateUser,
      followUser,
      unfollowUser,
-       
+     adminAuth,
+     deleteUser  
  };

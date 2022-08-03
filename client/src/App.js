@@ -6,7 +6,9 @@ import Welcome from './screen/welcome';
 import MyProfile from './screen/myProfile';
 import LandingPage from './screen/LandingPage';
 import ViewProfile from './screen/ViewProfile';
-
+import Admin from './screen/AdminComponent/AdminScreen';
+import Event from './screen/Event';
+import AddEvent from "./screen/AdminComponent/AddEvents";
 
 
 
@@ -22,6 +24,9 @@ function App() {
       <Route path="/register" exact element={<RegisterScreen />} />
       <Route path="welcome/myprofile/:id" exact element={<MyProfile/>} />
       <Route path="/viewprofile/:id" exact element={<ViewProfile/>} />
+      <Route path="/Admin" exact element={<Admin/>}/>
+      <Route path="/Event" exact element={<Event/>}/>
+      <Route path="/AddEvent" exact element={<AddEvent/>}/>
      </Routes>
      </BrowserRouter>
      </div>

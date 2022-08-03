@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const connectDB = require("./config/db");
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
+const eventRoutes = require('./routes/eventRoutes');
 const path = require('path');
 const { errorHandler } = require('./middleware/errorMiddleware');
 
@@ -36,10 +37,12 @@ app.use('/api/users/:id',userRoutes);
 app.use('/api/users/:id', userRoutes);
 app.use('/api', userRoutes);
 
-// Post Routea
+// Post Route
+
 app.use('/api/posts', postRoutes);
 
-
+// Event Route
+app.use('/api/events', eventRoutes);
 
 
 
@@ -47,7 +50,7 @@ app.use('/api/posts', postRoutes);
 
 // _________________________________Deployment to Heroku________________________________________
    
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, 'client/build')));
         
         app.get('*', (req, res) => {

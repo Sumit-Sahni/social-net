@@ -1,12 +1,10 @@
- const express = require('express');
- const mongoose = require('mongoose');
  const asyncHandler = require("express-async-handler");
  const User = require('../models/userModel');
  const Post = require('../models/postModel');
 
 
 
-
+  
   // Make Post By UserId
   const makePostByUser = asyncHandler(async(req,res)=>{
     const {id}  = req.params;
@@ -27,7 +25,11 @@ const fetchAllPosts = asyncHandler(async(req,res)=>{
   const posts = await Post.find().populate('user');
   res.status(200).json(posts);
 })
+
+
+
 //update a post*********************************************************
+
 const updateById = asyncHandler(async(req,res)=>{
     try {
         const post = await Post.findById(req.params.id);
@@ -88,5 +90,16 @@ const getById = asyncHandler(async(req,res)=>{
       }
  })
 
+ const deletePost = asyncHandler(async(req,res)=>{
+  try {
+    const post = await Post.findById(req.params.id);
+    if(post){
+      await post.remove();
+      return res.status(200).json("Post has been deleted");
+    }
+  } catch (error) {
+      return req.status(500).json(error);
+  }
+}) 
 
-module.exports = { updateById, updateLikes, getById, getEverythings,makePostByUser,fetchAllPosts};
+module.exports = {updateById, updateLikes, getById, getEverythings,makePostByUser,fetchAllPosts, deletePost};

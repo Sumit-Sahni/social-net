@@ -4,7 +4,8 @@ import axios from "axios";
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import LoginScreen from "./LoginScreen";
-import Footer from "./footer";
+import AdminLogin from "./AdminComponent/AdminLogin";
+
 
 const SinhgadFace = styled.div`
 font-family: "Times New Roman", Times, serif;
@@ -45,6 +46,8 @@ h1{
 const LandingPage = () => {
 
     const [count, setCount] = useState(0);
+    const [modalOpen, setModalOpen] = useState(false);
+
 
 
     useEffect(()=>{
@@ -77,6 +80,7 @@ const LandingPage = () => {
          </Fragment>
 
          <div className="container mb-5">
+          
             <div className="row">
                 <div className="col-md-4 col-lg-4 col-12 d-flex flex-column  align-items-start">
                   <TotalUser>
@@ -90,9 +94,30 @@ const LandingPage = () => {
                      <LoginScreen/>
                 </div>
             </div>
+
         </div>
 
-        <Footer />
+
+        <footer>
+        <div className="footer">
+        <div className="row d-flex jsutify-content-center">
+        <div className="col-md-4 offset-md-4">
+            <h5>Developer</h5>
+            <h6>Sumit Sahni</h6>
+        <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-facebook p-2"></i></a>
+       
+       <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-instagram  p-2"></i></a>
+      
+       <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-youtube  p-2"></i></a>
+      
+       <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-twitter  p-2"></i></a>
+        </div>
+        </div>
+        {modalOpen && <AdminLogin setOpenModal={setModalOpen} />}
+        <button onClick={() =>{setModalOpen(true)}} type="button" className="btn btn-secondary">Admin</button>
+        </div>
+
+        </footer>
         </>
 
 
