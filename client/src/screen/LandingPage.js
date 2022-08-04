@@ -1,19 +1,17 @@
 import React from "react";
 import  {useEffect, useState, Fragment} from "react";
 import axios from "axios";
-import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import LoginScreen from "./LoginScreen";
-import AdminLogin from "./AdminComponent/AdminLogin";
 
 
-const SinhgadFace = styled.div`
-font-family: "Times New Roman", Times, serif;
-   font-size: 2rem;
-   color: 0000;
-   font-family: 'Amatic SC', cursive;
-    // font-weight:bold;
-`
+// const SinhgadFace = styled.div`
+// font-family: "Times New Roman", Times, serif;
+//    font-size: 2rem;
+//    color: 0000;
+//    font-family: 'Amatic SC', cursive;
+//     // font-weight:bold;
+// `
 
 const TotalUser = styled.div`
   padding: 0.5rem;
@@ -46,7 +44,7 @@ h1{
 const LandingPage = () => {
 
     const [count, setCount] = useState(0);
-    const [modalOpen, setModalOpen] = useState(false);
+    // const [modalOpen, setModalOpen] = useState(false);
 
 
 
@@ -113,8 +111,8 @@ const LandingPage = () => {
        <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-twitter  p-2"></i></a>
         </div>
         </div>
-        {modalOpen && <AdminLogin setOpenModal={setModalOpen} />}
-        <button onClick={() =>{setModalOpen(true)}} type="button" className="btn btn-secondary">Admin</button>
+        {/* {modalOpen && <AdminLogin setOpenModal={setModalOpen} />}
+        <button onClick={() =>{setModalOpen(true)}} type="button" className="btn btn-secondary">Admin</button> */}
         </div>
 
         </footer>

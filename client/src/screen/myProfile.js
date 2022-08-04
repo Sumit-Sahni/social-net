@@ -42,22 +42,26 @@ const MyProfile = () => {
         const newGender = prompt("Enter your Gender");
         await axios.put(`/api/users/${id}`,
         {gender:newGender})
+        window.location.reload()
       }
       
       const updateDate = async (id) =>{
         const newDate = prompt("Enter in this formate: yyyy-months-date (1947-05-25)");
         await axios.put(`/api/users/${id}`,
         {date:newDate})
+        window.location.reload()
       }
       const updateAbout = async (id) =>{
         const newAbout = prompt("Update your About section");
         await axios.put(`/api/users/${id}`,
         {about:newAbout})
+        window.location.reload()
       }
       const updateCollege = async (id) =>{
         const newCollege = prompt("Update Your College");
         await axios.put(`/api/users/${id}`,
         {college:newCollege})
+        window.location.reload()
       }
       
       //  **********************************LIKES**********************************************
