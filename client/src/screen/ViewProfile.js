@@ -17,6 +17,7 @@ const ViewProfile = ({p}) => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([]);
     const [likes, setLikes] = useState("Like");
+    const [follow, setFollow] = useState([]);
 
   
 
@@ -27,6 +28,7 @@ const ViewProfile = ({p}) => {
             console.log(data);
             console.log(data.posts);
             setPosts(data.posts);
+            setFollow(data.followers)
             setUser([data]);
             setLikes(true);
          
@@ -48,8 +50,7 @@ const ViewProfile = ({p}) => {
     }
      
    
-
-
+  
 
     return(
         <>
@@ -174,6 +175,14 @@ const ViewProfile = ({p}) => {
                 )
             }) 
          }
+
+          {
+            follow.map((item, index) =>{
+                return(
+                       <h1>{item.name}</h1>
+                )
+            })
+          }
        </>
     )
 

@@ -12,6 +12,8 @@ import Footer from "./footer";
 
 
 
+
+
 const StyledProfile = styled.div`
     //   border: 1px solid #ccc;
 `
@@ -20,8 +22,20 @@ const MyProfile = () => {
     const auth = localStorage.getItem("userInfo");
     const [User, setUser] = useState([]);
     const [Posts, setPosts] = useState();
+    const [users_followers, setUsersFollowers] = useState([]);
 
     
+    useEffect(()=>{
+      const getAllUsers = async () =>{
+        const {data} = await axios.get("/allusers")
+        setUsersFollowers(data.data) 
+        console.log(data.data)
+     }
+      getAllUsers();
+    },[])
+
+
+
    useEffect(()=>{
     const getUser = async () =>{
     const {data} = await axios.get(`/api/users/userbyid/${JSON.parse(auth)._id}`);
@@ -54,7 +68,7 @@ const MyProfile = () => {
       const updateAbout = async (id) =>{
         const newAbout = prompt("Update your About section");
         await axios.put(`/api/users/${id}`,
-        {about:newAbout})
+        {about:newAbout}) 
         window.location.reload()
       }
       const updateCollege = async (id) =>{
@@ -106,7 +120,7 @@ const MyProfile = () => {
          {
             User.map((users, index) =>{
                 return(
-                    <StyledProfile className="container mt-5 py-3 p-4" key={index}>
+                    <StyledProfile className="container mt-5 py-5" key={index}>
                         <div className="row justify-content-start ">
                             <div className="col-md-6 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
@@ -163,21 +177,67 @@ const MyProfile = () => {
                                 <div className="row">
                                     <div className="col-md-12 d-flex flex-row   ">
                                       <div>
-                                        <p><strong>{users.followers.length}</strong>  _Followers </p>
+                                        <p><strong>{users.followers.length}</strong> Followers</p>
                                     </div>               
                                     </div>
 
                                     <div>
-                                        <p><strong>{users.followings.length}</strong>  _Following</p>
+                                        <p><strong>{users.followings.length}</strong> Followings</p>
                                     </div>
                                 </div> 
 
                             </div>
                             </div>
-                            <div className="col-md-5 col-lg-5 p-6 mt-5">
+                            <div className="col-md-5 col-lg-4 py-3 ">
                                 <AddPost/>
                             </div>
+
+                            <div className="col-md-5 col-lg-4 py-3 d-flex flex-column align-items-center">
+                                <h1 className="fs-2">Followers</h1>
+                                {
+                                  users_followers.map((users_followers, index) =>{
+                                    return(
+                                        <div className="row" key={index}>
+                                            <div className="col-md-12 d-flex flex-row  ">
+                                                <div className="">
+                                                  
+                                                  {
+                                                     users_followers.followings.includes(`${JSON.parse(auth)._id}`)?
+                                                    (
+                                                      <div className="d-flex flex-row align-content-center mx-5 p-2">
+                                                        <div className=" row">
+                                                         <div>
+                                                             <img className="mx-auto" src={`${users_followers.pic}`} alt={"img"} style={{width:"50px", height:"50px", borderRadius:"50%", objectFit:"cover"}}></img>
+                                                          </div> 
+                                                        </div>
+                                                        <div>
+                                                        <h6 className="mt-1 p-3 mx-2">{ users_followers.name.charAt(0).toUpperCase()+ users_followers.name.slice(1)}</h6>
+                                                        </div>                                                      
+                                                      </div>
+                                                    ):null
+                                                    
+                                                    }  
+                                                </div>
+                                                <div className="d-flex flex-column  justify-content-center  my-2">                                                
+                                                    <div className="row ">
+                                                    </div>
+                                                    <div className="row " >
+                                                        <div className="col-md-10 d-flex flex-row ">
+                                                          <div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    )
+                                  })
+                                }
+                            </div>
+
                         </div>
+
+                       
 
                         <div className="row justify-content-center mt-5">
                         <h1 className="text-center position-sticky pb-3">My Posts</h1>

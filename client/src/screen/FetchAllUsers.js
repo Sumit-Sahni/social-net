@@ -11,10 +11,6 @@ const StyledProfile = styled.div`
      
 `
 
-
-
-
-
 const FetchAllUsers = () => {
     const auth = localStorage.getItem("userInfo");
     const [AllsUsers, setAllUsers] = useState([]);
@@ -117,12 +113,12 @@ const FetchAllUsers = () => {
                                 <div>
                                 <img src={`${users.pic}`} alt={"img"} style={{width:"80px", height:"80px", borderRadius:"50%", objectFit:"cover"}}></img>
                                 </div>
-                            <div className="d-flex flex-column  justify-content-center  my-2">
-                                <h6>{users.about}</h6>
-                            
+                            <div className="d-flex flex-column  justify-content-center  my-2">                            
                                 {
                                     users._id.includes(`${JSON.parse(auth)._id}`)?<h5>You</h5>:<h6>{users.name.charAt(0).toUpperCase()+users.name.slice(1)}</h6>
                                 }
+                                <h6>{users.about}</h6>
+
                                
                             </div>
                             </div>

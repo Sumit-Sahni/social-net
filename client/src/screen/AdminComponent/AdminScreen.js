@@ -29,6 +29,7 @@ const Admin = () => {
     useEffect(()=>{
         const getAllUsers = async () =>{
           const {data} = await axios.get("/allusers")
+          console.log(data)
           setAllUsers(data.data) 
           console.log(data.data)
          
@@ -76,12 +77,14 @@ const Admin = () => {
         window.location.reload(); 
     }
 
-    const deletePostHandler = async (id) => {
+    const deleteUserPosts= async (id) => {
       await axios.delete(`/api/posts/delete/${id}`);
       window.location.reload(); 
   }
 
+ 
 
+   
 
 
 
@@ -97,7 +100,6 @@ const Admin = () => {
     <div className="collapse navbar-collapse " id="navbarSupportedContent">
       <ul  className="navbar-nav me-auto  mb-lg-0">
         <li><NavLink to={`/AddEvent`} className="nav-link text-white">Add Events</NavLink></li>
-        <li><NavLink to={`/AddEvent`} className="nav-link text-white">ADMIN</NavLink></li>
 
       </ul>
     </div>
@@ -105,7 +107,7 @@ const Admin = () => {
    </div>
 
       </nav> 
-         <div className="container">
+         <div className="container p-5">
             <div className='row'>
                 <div className='col-lg-4'>
                 <form className="d-flex position-sticky mx-2 my-2" role="search">
@@ -163,7 +165,6 @@ AllsUsers.map((users, index) =>{
                 {/* <p>{users.followers}</p> */}
                 </NavLink>
                 <button  type="button" onClick={()=> deleteUserHandler(users._id)} className="btn btn-danger mx-2 " >Delete User</button>
-
         </StyledProfile>
     )
 }) 
@@ -176,7 +177,7 @@ AllsUsers.map((users, index) =>{
                   return( 
                     <div key={index} >
                       
-                      <div className="container"> 
+                      <div className="container mt-5"> 
                     
                         <div className="row">
                                 <div className="col-lg-12 col-12 ">
@@ -224,8 +225,7 @@ AllsUsers.map((users, index) =>{
                                 
                                      <div className="row">
                                         <div className="col">
-                                        <button  type="button" onClick={()=> deletePostHandler(post._id)}  className="btn btn-danger mx-2 " >Delete this Post</button>
-
+                                        <button  type="button" onClick={()=> deleteUserPosts(post._id)}  className="btn btn-danger mx-2 " >Delete this Post</button>
                                         </div>
                                      </div>
 

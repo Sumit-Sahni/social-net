@@ -67,6 +67,7 @@ const updateById = asyncHandler(async(req,res)=>{
 const getById = asyncHandler(async(req,res)=>{
     try {
         const post = await Post.findById(req.params.id);
+        console.log(post)
         res.status(200).json(post);
       } catch (err) {
         res.status(500).json(err);
@@ -93,8 +94,9 @@ const getById = asyncHandler(async(req,res)=>{
  const deletePost = asyncHandler(async(req,res)=>{
   try {
     const post = await Post.findById(req.params.id);
+    console.log(post)
     if(post){
-      await post.remove();
+      // await post.remove();
       return res.status(200).json("Post has been deleted");
     }
   } catch (error) {

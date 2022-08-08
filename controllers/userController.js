@@ -2,6 +2,8 @@ const asyncHandler = require("express-async-handler");
 const mongoose = require("mongoose");
 const User = require("../models/userModel");
 const generateToken = require("../util/generateToken");
+const Post = require("../models/postModel");
+const { fetchAllPosts } = require("./postController");
 
 
 
@@ -154,7 +156,7 @@ const authUser = asyncHandler(async(req,res)=>{
           return req.status(401).json("Alreay following");
          } 
       } catch (error) {
-          return req.status(500).json(error)
+          return res.status(500).json(error)
       }
  })
 
@@ -176,17 +178,45 @@ const authUser = asyncHandler(async(req,res)=>{
 
 
    const deleteUser = asyncHandler(async(req,res)=>{
-    try {
+      
       const user = await User.findById(req.params.id);
+      // const array_posts = [];
+      // array_posts.push(user.posts);
+      // console.log(array_posts)
+      // console.log(array_posts.length)
+      // alert(array_posts.length)
+        console.log(user.posts)
+        console.log(user.posts.length)
+          for(let i=0;i<user.posts.length;i++){
+            console.log("in for loop")
+            const post = await Post.findById(user.posts[i]);
+            console.log("after finding post")
+            console.log(post)
+            if(post!=null){
+              console.log("deleting post")
+              await post.remove();
+            }
+            // else{
+            //   console.log("deleting post")
+            //   await post.remove();
+            // }        
+        }
+     
       if(user){
-        await user.remove();
-        return res.status(200).json("User has been deleted");
+          await user.remove();
+          return res.status(200).json("User has been deleted");
       }
-    } catch (error) {
-        return req.status(500).json(error);
-    }
-  })
+      else{
+          return res.status(404).json("User not found");
+      }
+   })
 
+    const  userByFollowers = asyncHandler(async(req,res)=>{
+          const user = await User.find({
+             "_id": {$in:[ObjectId(req.params.id)]}
+          })
+          res.send({user});
+    })
     
 module.exports = {
     registerUser,
@@ -197,5 +227,6 @@ module.exports = {
      followUser,
      unfollowUser,
      adminAuth,
-     deleteUser  
+     deleteUser,
+     userByFollowers  
  };

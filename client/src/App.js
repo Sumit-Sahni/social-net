@@ -9,6 +9,7 @@ import ViewProfile from './screen/ViewProfile';
 import Admin from './screen/AdminComponent/AdminScreen';
 import Event from './screen/Event';
 import AddEvent from "./screen/AdminComponent/AddEvents";
+import Help from './screen/Help';
 
 
 
@@ -26,6 +27,7 @@ function App() {
       <Route path="/viewprofile/:id" exact element={<ViewProfile/>} />
       <Route path="/Admin" exact element={<Admin/>}/>
       <Route path="/Event" exact element={<Event/>}/>
+      <Route path="/Help" exact element={<Help/>}/>
       <Route path="/AddEvent" exact element={<AddEvent/>}/>
      </Routes>
      </BrowserRouter>

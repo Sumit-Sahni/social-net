@@ -1,5 +1,5 @@
 const express = require('express');
-const {  registerUser,   authUser,   getUser,    getUserById,    updateUser, followUser, unfollowUser, adminAuth,deleteUser} = require('../controllers/userController');
+const {  registerUser,   authUser,   getUser,    getUserById,    updateUser, followUser, unfollowUser, adminAuth,deleteUser,userByFollowers} = require('../controllers/userController');
 const router = express.Router();
   
 
@@ -13,6 +13,7 @@ router.route("/:id/follow").put(followUser);
 router.route("/:id/unfollow").put(unfollowUser);
 router.route("/admin").post(adminAuth);
 router.route("/delete/:id").delete(deleteUser);
+router.route("/userbyfollowers/:id").get(userByFollowers);
 
 
 

@@ -64,7 +64,7 @@ const AllPost = () => {
                                  <div className="card-body  ">
                                     <div className="row w-50">
                                      <div className="col-md-12 d-flex align-items-end ">
-                                       <NavLink to={`/viewprofile/${post.user._id}`}>
+                                       <NavLink  to={`/viewprofile/${post.user._id}`}>
                                         <div>
                                            <img src={`${post.user.pic}`} alt={"img"} style={{width:"50px", height:"50px", borderRadius:"50%", objectFit:"cover"}}></img>
                                         </div >
