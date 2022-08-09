@@ -45,7 +45,7 @@ const Help = () => {
                         <div className="col-8 form-group mx-auto">
                           <input type="text" className="form-control" placeholder="Your Name" name="name"/>
                         </div>
-                        <div className="col-8 form-group pt-2 mx-auto d-lg-none">
+                        <div className="col-8 form-group pt-2 mx-auto d-lg-none d-none">
                           <input value={`${JSON.parse(auth).email}`} type="email" className="form-control" placeholder="Your Email Address" name="email"/>
                         </div>
                         <div className="col-8 form-group pt-2  mx-auto">

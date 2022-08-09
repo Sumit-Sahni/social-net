@@ -120,7 +120,7 @@ const MyProfile = () => {
          {
             User.map((users, index) =>{
                 return(
-                    <StyledProfile className="container mt-5 py-5" key={index}>
+                    <StyledProfile className="container mt-5 py-5 px-3" key={index}>
                         <div className="row justify-content-start ">
                             <div className="col-md-6 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
@@ -192,28 +192,30 @@ const MyProfile = () => {
                                 <AddPost/>
                             </div>
 
-                            <div className="col-md-5 col-lg-4 py-3 d-flex flex-column align-items-center">
-                                <h1 className="fs-2">Followers</h1>
+                            <div className="col-md-5 col-lg-4 py-3 ">
+                                <h1 className="fs-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Followers</h1>
                                 {
                                   users_followers.map((users_followers, index) =>{
                                     return(
-                                        <div className="row" key={index}>
-                                            <div className="col-md-12 d-flex flex-row  ">
+                                        <div className="row " key={index}>
+                                            <div className="col-md-12">
                                                 <div className="">
-                                                  
                                                   {
                                                      users_followers.followings.includes(`${JSON.parse(auth)._id}`)?
                                                     (
-                                                      <div className="d-flex flex-row align-content-center mx-5 p-2">
-                                                        <div className=" row">
-                                                         <div>
+                                                        <div className="row d-flex align-items-center justify-content-center">
+                                                           <div className="col-lg-2  col-2">
+                                                           <NavLink to={`/viewprofile/${users_followers._id}`}>
                                                              <img className="mx-auto" src={`${users_followers.pic}`} alt={"img"} style={{width:"50px", height:"50px", borderRadius:"50%", objectFit:"cover"}}></img>
-                                                          </div> 
+                                                          </NavLink> 
+                                                      
+                                                           </div>
+                                                           <div className="col-lg-2 col-2">
+                                                           <div>
+                                                        <h6 className="mt-1 " style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >{ users_followers.name.charAt(0).toUpperCase()+ users_followers.name.slice(1)}</h6>
+                                                        </div>   
+                                                           </div>
                                                         </div>
-                                                        <div>
-                                                        <h6 className="mt-1 p-3 mx-2">{ users_followers.name.charAt(0).toUpperCase()+ users_followers.name.slice(1)}</h6>
-                                                        </div>                                                      
-                                                      </div>
                                                     ):null
                                                     
                                                     }  

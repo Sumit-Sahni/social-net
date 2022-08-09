@@ -2,6 +2,7 @@ import React from "react";
 import FetchAllUsers from "./FetchAllUsers";
 import AllPosts from "./AllPosts";
 import styled from "styled-components";
+import Footer from "./footer";
 
 
 const ProfileScroll = styled.div`
@@ -42,6 +43,7 @@ const HomeAndUsers = () => {
             </div>
           </div>
           </div>
+          <Footer/>
        </>
     );
 }
