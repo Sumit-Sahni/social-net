@@ -180,11 +180,7 @@ const authUser = asyncHandler(async(req,res)=>{
    const deleteUser = asyncHandler(async(req,res)=>{
       
       const user = await User.findById(req.params.id);
-      // const array_posts = [];
-      // array_posts.push(user.posts);
-      // console.log(array_posts)
-      // console.log(array_posts.length)
-      // alert(array_posts.length)
+
         console.log(user.posts)
         console.log(user.posts.length)
           for(let i=0;i<user.posts.length;i++){
@@ -196,10 +192,7 @@ const authUser = asyncHandler(async(req,res)=>{
               console.log("deleting post")
               await post.remove();
             }
-            // else{
-            //   console.log("deleting post")
-            //   await post.remove();
-            // }        
+                 
         }
      
       if(user){
@@ -228,5 +221,6 @@ module.exports = {
      unfollowUser,
      adminAuth,
      deleteUser,
-     userByFollowers  
+     userByFollowers,
+      
  };

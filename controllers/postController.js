@@ -96,7 +96,7 @@ const getById = asyncHandler(async(req,res)=>{
     const post = await Post.findById(req.params.id);
     console.log(post)
     if(post){
-      // await post.remove();
+      await post.remove();
       return res.status(200).json("Post has been deleted");
     }
   } catch (error) {

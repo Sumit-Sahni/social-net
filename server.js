@@ -9,8 +9,14 @@ const connectDB = require("./config/db");
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const eventRoutes = require('./routes/eventRoutes');
-const path = require('path');
+const videoRoutes = require('./routes/videoRoutes');
 const { errorHandler } = require('./middleware/errorMiddleware');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+
+
+
 
 dotenv.config();
 connectDB();
@@ -20,6 +26,7 @@ app.use(cors(
 ));
 
 app.use(express.json());
+app.use('/public', express.static(path.join(__dirname, 'public')));
 // app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);
 app.use(bodyParser.urlencoded({ extended: false })); 
@@ -30,7 +37,7 @@ app.get('/notes/:id', (req, res) => {
      })
      res.send(note);
 });
-
+// app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use('/api/users',userRoutes);
 app.use('/allusers',userRoutes);
 app.use('/api/users/:id',userRoutes);
@@ -44,7 +51,41 @@ app.use('/api/posts', postRoutes);
 // Event Route
 app.use('/api/events', eventRoutes);
 
+// Video Route
+const storage = multer.diskStorage({
+    destination: (req, file,cb)=>{
+       if(!fs.existsSync('public')){
+             fs.mkdirSync('public');
+       }
+       if(!fs.existsSync('public/videos')){
+          fs.mkdirSync('public/videos');
+    }
+         cb(null, 'public/videos');
+    },
+     filename: (req, file, cb)=>{
+         cb(null, Date.now() + file.originalname);
+     },
+  });
+  
+  
+  const upload = multer({
+     storage: storage,
+     fileFilter: (req, file, cb)=>{
+         const ext = path.extname(file.originalname);
+           if(ext !== '.mp4' && ext !== '.mkv'){
+                return cb(res.status(400).end('only mp4 and mkv are allowed'));
+           }
+         cb(null, true);
+     }
+  });
 
+
+
+
+
+app.use('/api/videos', upload.fields([
+    { name: 'videos', maxCount: 5 },
+]),  videoRoutes);
 
 
 

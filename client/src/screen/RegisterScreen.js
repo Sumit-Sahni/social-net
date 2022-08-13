@@ -91,11 +91,14 @@ const RegisterScreen = () => {
                 localStorage.setItem("userInfo", JSON.stringify(data));
                 setLoading(false);
                 alert("Registration Successful");
+                window.location.href = "/welcome"; 
                
                 
       }catch(error){
             setLoading(false);
-            alert("Check Your Email and Password & Every field is required"); 
+            alert("Check Your Email and Password & Every field is required");
+            window.location.reload()
+ 
         }
         
       }
@@ -213,7 +216,8 @@ const RegisterScreen = () => {
         <div className="col-md-6 mb-3">
         <label htmlFor="gender" className="form-label">Gender</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
-            <select onChange={(e)=> setGender(e.target.value)}  className="form-control w-70" id="gender" >
+            <select onChange={(e)=> setGender(e.target.value)}  className="form-control w-70" id="gender"  placeholder="Gender">
+              <option selected>Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>

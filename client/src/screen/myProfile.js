@@ -7,8 +7,27 @@ import moment from "moment";
 import { HomeContainer } from "./styled/Home.styled";
 import AddPost from "./addPost"
 import Footer from "./footer";
+// import AddVideos from "./addVideos";
 
 
+const FollowerScroll = styled.div`
+ ::-webkit-scrollbar {
+  width: 0px;
+ },
+  // ::-webkit-scrollbar-track {
+  // background: #f1f1f1;
+  // },
+  ::-webkit-scrollbar-thumb {
+  background-color: rgba(179, 179, 179, 0.1);
+  }
+  overflow-y: scroll;
+  height: 35vh;
+  bordr: none;
+  
+
+  @media (max-width: 480px) {
+    height: 25vh;
+`
 
 
 
@@ -88,6 +107,15 @@ const MyProfile = () => {
          window.location.reload(); 
           
       }
+    // **********************************UNFOLLOW FROM PROFILE**********************************************
+
+  //   const handleUnFollow = (id) =>{
+  //     const data = {
+  //         userId: JSON.parse(auth)._id,
+  //     }
+  //     axios.put(`api/users/${id}/unfollow`, data)
+  //     window.location.reload()
+  // }
 
     return(
          <>
@@ -194,6 +222,7 @@ const MyProfile = () => {
 
                             <div className="col-md-5 col-lg-4 py-3 ">
                                 <h1 className="fs-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Followers</h1>
+                                <FollowerScroll>
                                 {
                                   users_followers.map((users_followers, index) =>{
                                     return(
@@ -213,6 +242,7 @@ const MyProfile = () => {
                                                            <div className="col-lg-2 col-2">
                                                            <div>
                                                         <h6 className="mt-1 " style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >{ users_followers.name.charAt(0).toUpperCase()+ users_followers.name.slice(1)}</h6>
+                                                        {/* <button onClick={()=>handleUnFollow(users.followers._id)} type="button" className="btn btn-secondary" >Unfollow</button> */}
                                                         </div>   
                                                            </div>
                                                         </div>
@@ -235,11 +265,12 @@ const MyProfile = () => {
                                     )
                                   })
                                 }
+                                </FollowerScroll>
                             </div>
-
+                                 
                         </div>
 
-                       
+                         {/* <AddVideos/> */}
 
                         <div className="row justify-content-center mt-5">
                         <h1 className="text-center position-sticky pb-3">My Posts</h1>

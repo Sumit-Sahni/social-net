@@ -137,6 +137,7 @@ const FetchAllUsers = () => {
                         
                             users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleUnFollow (users._id)} type="button" className="btn btn-secondary p-2 mx-1 bg-danger" >Unfollow</button>:null
                            }
+                
                     </StyledProfile>
                 )
             }) 

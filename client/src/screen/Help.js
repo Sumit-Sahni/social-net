@@ -19,6 +19,7 @@ const Help = () => {
               console.log(error.text);
           });
           e.target.reset();
+          alert("Email sent successfully");
     }
 
     return (
@@ -40,6 +41,8 @@ const Help = () => {
     
       </nav>  
             <div className="container">
+            <h1 className="py-4 mx-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Query</h1>
+
                 <form ref={form} onSubmit={sendEmail}>
                     <div className="row pt-5 mx-auto">
                         <div className="col-8 form-group mx-auto">
