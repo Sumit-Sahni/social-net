@@ -5,19 +5,28 @@ import axios from "axios";
 import { useParams } from "react-router";
 import moment from "moment"; 
 import styled from "styled-components";
+import FetchUserVideo from "./fetchUserVideo";
+
 
 
 const StyledProfile = styled.div`
 `
-
-
+const DisplayVideo = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column!important;
+  }
+`
+// const VideoSection = styled.div`
+//    background-color: black;
+// `
 const ViewProfile = ({p}) => {
     const auth = localStorage.getItem("userInfo");
     const { id } = useParams();
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([]);
     const [likes, setLikes] = useState("Like");
-    const [follow, setFollow] = useState([]);
+    
 
   
 
@@ -28,7 +37,7 @@ const ViewProfile = ({p}) => {
             console.log(data);
             console.log(data.posts);
             setPosts(data.posts);
-            setFollow(data.followers)
+            console.log(data.videos);
             setUser([data]);
             setLikes(true);
          
@@ -85,7 +94,7 @@ const ViewProfile = ({p}) => {
                                 <div>
                                 <img src={`${users.pic}`} alt={"img"} style={{width:"180px", height:"180px", borderRadius:"50%", objectFit:"cover"}}></img>
                                 </div>
-                            <div className="d-flex flex-column  justify-content-center  my-2">
+                             <div className="d-flex flex-column  justify-content-center  my-2">
                                 <h5>{users.name}</h5>
                                 <p>Email: {users.email}</p>
                                 <div className="row " >
@@ -175,14 +184,15 @@ const ViewProfile = ({p}) => {
                 )
             }) 
          }
-
-          {
-            follow.map((item, index) =>{
-                return(
-                       <h1>{item.name}</h1>
-                )
-            })
-          }
+        
+          <div className="container  pt-4">
+           <div className="row">
+              <DisplayVideo className="col-lg-12  d-flex flex-row gap-2 ">
+                 <FetchUserVideo  />
+              </DisplayVideo>
+            </div>
+          </div>  
+         
        </>
     )
 

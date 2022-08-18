@@ -59,7 +59,11 @@ const userSchema = new Schema(
     posts:[{
         type:Schema.Types.ObjectId,
         ref:'Post'
-    }], 
+    }],
+     videos:[{
+        type:Schema.Types.ObjectId,
+        ref:'Video'
+     }],
     created_at : {
        type: Date, required: true, default: Date.now 
       },

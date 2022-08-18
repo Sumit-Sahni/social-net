@@ -9,6 +9,11 @@ const videoSchema = new mongoose.Schema({
     videos:[{
         type: String,
     }],
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+            ref:'User',
+            required:true 
+    },
     created_at : {
         type: Date, required: true, default: Date.now
     }

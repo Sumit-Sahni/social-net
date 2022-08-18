@@ -6,7 +6,7 @@ const Loading = () => {
  
 
     return(
-        <h1>Data Loading....</h1>
+    <h5>Your Video is being Uploading...</h5>
     )
 }
 

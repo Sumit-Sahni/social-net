@@ -7,8 +7,16 @@ import moment from "moment";
 import { HomeContainer } from "./styled/Home.styled";
 import AddPost from "./addPost"
 import Footer from "./footer";
-// import AddVideos from "./addVideos";
+import AddVideos from "./addVideos";
+import FetchUserVideo from "./fetchUserVideo";
 
+
+const DisplayVideo = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column!important;
+  }
+`
 
 const FollowerScroll = styled.div`
  ::-webkit-scrollbar {
@@ -252,6 +260,7 @@ const MyProfile = () => {
                                                 </div>
                                                 <div className="d-flex flex-column  justify-content-center  my-2">                                                
                                                     <div className="row ">
+                                                     
                                                     </div>
                                                     <div className="row " >
                                                         <div className="col-md-10 d-flex flex-row ">
@@ -270,7 +279,16 @@ const MyProfile = () => {
                                  
                         </div>
 
-                         {/* <AddVideos/> */}
+                        <AddVideos/>
+
+                        <div className="container  pt-4">
+                        <h1 className="py-4 mx-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >My Videos</h1>
+                                        <div className="row">
+                                  <DisplayVideo className="col-lg-12  d-flex flex-row gap-2 ">
+                                  <FetchUserVideo  />
+                                  </DisplayVideo>
+                             </div>
+                        </div>  
 
                         <div className="row justify-content-center mt-5">
                         <h1 className="text-center position-sticky pb-3">My Posts</h1>

@@ -114,10 +114,7 @@ const RegisterScreen = () => {
         setAbout(""); 
     }
 
-        setTimeout(() => {
-          
-        }, 3000);
-     
+       
     return (
 
     <Fragment>
@@ -172,7 +169,7 @@ const RegisterScreen = () => {
         <label htmlFor="file" className="form-label">Profile picture</label>
         <i style={{color:"red", fontSize:"8px"}} className="bi bi-asterisk mx-3"></i>
           <input className="form-control w-70" id="file"
-           onChange={(e)=> postDetail(e.target.files[0])}
+             onChange={(e)=> postDetail(e.target.files[0])}
             type="file"
             placeholder="Profile Picture"
           />  
