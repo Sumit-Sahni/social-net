@@ -66,7 +66,7 @@ const Event = () => {
                 <div className="row">
              
                       <div className="col-lg-4 col-md-12 col-12  mb-5">
-                           <img style={{"width":"350px"}} src={event.eventpic}/>
+                           <img style={{"width":"280px"}} src={event.eventpic}/>
                       </div>
                       <div className="col-lg-8 col-md-12 col-12 p-5">
                           <h1 style={{"font-family": `'Josefin Sans', 'sans-serif'`}}>{event.eventtitle}</h1>
