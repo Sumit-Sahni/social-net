@@ -15,6 +15,7 @@ const StyledProfile = styled.div`
 const DisplayVideo = styled.div`
   @media (max-width: 768px) {
     display: flex;
+    height:100%;
     flex-direction: column!important;
   }
 `
@@ -198,12 +199,12 @@ const ViewProfile = ({p}) => {
                     <ReactPlayer
                      key={key}
                      url={vid.videos}
-                     width="90%"
+                     width="80%"
                      height="40%"
                      controls={true}
                      className="mx-auto"
                     />
-                     <h6 className='mt-2 mx-3 '>{vid.title}</h6>
+                     <h6 className='mt-2 mx-5 '>{vid.title}</h6>
                  </div>
                 )
               })
