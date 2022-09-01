@@ -1,12 +1,14 @@
-// import {useEffect} from "react";
 import React from "react";
+import "../screen/styled/CSS/loading.css"
 
 
 const Loading = () => {
  
 
     return(
-    <h5>Your Video is being Uploading...</h5>
+        <> 
+         <div className="lds-ring mx-5 px-5"><div></div><div></div><div></div><div></div></div>
+        </>
     )
 }
 

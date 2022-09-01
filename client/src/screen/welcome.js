@@ -14,11 +14,9 @@ const Home = styled.div`
 
 const Welcome = () => {
 
-  const [event, SetEvent] = useState(false);
-
- 
- const auth = localStorage.getItem("userInfo");
-    return (
+  const [event, SetEvent] = useState(false); 
+  const auth = localStorage.getItem("userInfo");
+     return (
      <Home>
       <nav className="navbar navbar-expand-lg bg-dark p-4 ">
   <div className="container-fluid">

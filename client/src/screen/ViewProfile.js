@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 import moment from "moment"; 
 import styled from "styled-components";
+import ReactPlayer from 'react-player';
 import FetchUserVideo from "./fetchUserVideo";
 
 
@@ -26,9 +27,9 @@ const ViewProfile = ({p}) => {
     const [user, setUser] = useState([]);
     const [posts, setPosts] = useState([]);
     const [likes, setLikes] = useState("Like");
+    const [uservideo, setUserVideo] = useState([])
+ 
     
-
-  
 
 
     useEffect(() => {
@@ -38,6 +39,7 @@ const ViewProfile = ({p}) => {
             console.log(data.posts);
             setPosts(data.posts);
             console.log(data.videos);
+            setUserVideo(data.videos)
             setUser([data]);
             setLikes(true);
          
@@ -147,6 +149,7 @@ const ViewProfile = ({p}) => {
                                         <div style={{cursor:'pointer'}}></div>
                                     </div>
                                 </div> 
+                               
                             </div>
                             </div>
                             <div className="col-md-12 col-lg-6 col-12  p-2 " style={{"overflow-y": "auto", height: "60vh", width:"115vh", border: "none"}}>
@@ -188,7 +191,23 @@ const ViewProfile = ({p}) => {
           <div className="container  pt-4">
            <div className="row">
               <DisplayVideo className="col-lg-12  d-flex flex-row gap-2 ">
-                 <FetchUserVideo  />
+             {
+              uservideo.map((vid, key)=>{
+                return(
+                 <div>
+                    <ReactPlayer
+                     key={key}
+                     url={vid.videos}
+                     width="90%"
+                     height="40%"
+                     controls={true}
+                     className="mx-auto"
+                    />
+                     <h6 className='mt-2 mx-3 '>{vid.title}</h6>
+                 </div>
+                )
+              })
+             }
               </DisplayVideo>
             </div>
           </div>  

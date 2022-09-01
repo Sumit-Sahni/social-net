@@ -125,6 +125,8 @@ const MyProfile = () => {
   //     window.location.reload()
   // }
 
+
+
     return(
          <>
           <HomeContainer>
@@ -279,15 +281,16 @@ const MyProfile = () => {
                                  
                         </div>
 
-                        <AddVideos/>
+                        <AddVideos className="my-2"/>
 
                         <div className="container  pt-4">
                         <h1 className="py-4 mx-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >My Videos</h1>
                                         <div className="row">
-                                  <DisplayVideo className="col-lg-12  d-flex flex-row gap-2 ">
-                                  <FetchUserVideo  />
+                                   <DisplayVideo className="col-lg-12 d-flex flex-row gap-2 ">
+                                   <FetchUserVideo />
                                   </DisplayVideo>
                              </div>
+
                         </div>  
 
                         <div className="row justify-content-center mt-5">

@@ -37,7 +37,7 @@ const HomeAndUsers = () => {
                  </ProfileScroll>
             </div>
             
-            <div className="col-md-12 col-lg-8 col-12 col-5  mt-3 ">
+            <div className="col-md-12 col-lg-6 col-12 col-5  mt-3 ">
                 <h1 className="py-4 mx-2" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Timeline</h1>
                   <AllPosts/>
             </div>

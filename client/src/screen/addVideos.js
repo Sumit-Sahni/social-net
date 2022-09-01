@@ -2,7 +2,7 @@ import {React} from "react";
 import  {useState} from "react";
 import axios from "axios";
 import { NavLink} from "react-router-dom";
-import Loading from "../Components/Loading";
+import VideoLoading from "../Components/videoloading";
 
 
 
@@ -32,7 +32,7 @@ const AddVideos = () => {
         .then(data => {
           console.log(data);
           setVideos(data.url);
-          alert("Video Uploaded");
+          alert("Clicke on the Post Button to upload the video");
           setLoading(false);
           console.log(data);
           setLoading(false);
@@ -89,7 +89,7 @@ const AddVideos = () => {
             </div>
               </div>
             </div>
-             {loading && <Loading/>}
+             {loading && <VideoLoading/>}
             <button type="submit" className="btn btn-primary my-2">Post</button>
          </form>
         </>

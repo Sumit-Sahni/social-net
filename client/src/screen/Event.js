@@ -2,8 +2,23 @@ import { useState , useEffect} from "react";
 import axios from "axios";
 import {NavLink} from "react-router-dom";
 import moment from "moment";
+import styled from "styled-components";
 
 
+const StyleEvent = styled.div`
+    //   border: 1px solid black;
+         padding:1rem;
+         width: auto;
+         &:hover{
+         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px!important;
+         background: rgba(0,0,0,0.2);
+         pointer-events: cursor;
+         
+          }
+          border-radius:15px;
+          transition: all 0.4s ease-in-out;
+          
+`
 
 
 
@@ -46,9 +61,11 @@ const Event = () => {
          {
           events.map((event, index) => {
             return (
-              <div className="container px-4  py-4" key={index} style={{}}>
+              <div className="container   py-4" key={index} style={{}}>
+                <StyleEvent>
                 <div className="row">
-                      <div className="col-lg-4 col-md-12 col-12 px-2 mb-5">
+             
+                      <div className="col-lg-4 col-md-12 col-12  mb-5">
                            <img style={{"width":"350px"}} src={event.eventpic}/>
                       </div>
                       <div className="col-lg-8 col-md-12 col-12 p-5">
@@ -60,6 +77,7 @@ const Event = () => {
                           }
                       </div>
                     </div>
+                    </StyleEvent>
                   </div>
             )
           })
