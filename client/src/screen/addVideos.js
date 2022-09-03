@@ -1,7 +1,6 @@
 import {React} from "react";
 import  {useState} from "react";
 import axios from "axios";
-import { NavLink} from "react-router-dom";
 import VideoLoading from "../Components/videoloading";
 
 
@@ -71,7 +70,7 @@ const AddVideos = () => {
             <div className="row">
               <div  className="col-md-6 mb-3">
               <label htmlFor="name" className="form-label">Title</label>
-                 <input className="form-control w-100 mb-3" id="name" aria-describedby="emailHelp"
+                 <input className="form-control w-50 mb-3" id="name" aria-describedby="emailHelp"
                   type="name" 
                   value={title}
                   placeholder="Title"
@@ -81,11 +80,11 @@ const AddVideos = () => {
               <div className="col-md-12 mb-3">
               <div className="form-group ">
             <label className="mb-2" htmlFor="file">Upload Your Video: File Size less than 100 MB </label>  
-            <input  className="form-control w-50" id="file"
-                  onChange={(e)=> videoPost(e.target.files[0])}
-                  type="file"
-                  placeholder="Video"
-            />
+            <input className="form-control w-50 mb-3" id="name" aria-describedby="emailHelp"
+                 onChange={(e)=> videoPost(e.target.files[0])}
+                 type="file"
+                 placeholder="Video"
+             />
             </div>
               </div>
             </div>

@@ -133,6 +133,7 @@ const authUser = asyncHandler(async(req,res)=>{
      user.date = req.body.date || user.date;
      user.about = req.body.about || user.about;
      user.college = req.body.college || user.college;
+     user.pic = req.body.pic || user.pic;
     }
     const updateItem = await user.save();
       res.json({

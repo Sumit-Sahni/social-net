@@ -16,8 +16,6 @@ const FetchUserVideo =()=> {
      useEffect(() => {
         const getUser = async () => {
             const { data } = await axios.get(`/api/users/userbyid/${id}`);
-            console.log(data);
-            console.log(data.posts);
             setVideos(data.videos);
          
         }
@@ -50,7 +48,7 @@ const FetchUserVideo =()=> {
                 />
                 <div className='mx-4'>
                 <h6 className='mt-2'>{video.title}</h6>
-                <button className="btn btn-danger  " onClick={()=> deleteVideoHandler(video._id)} style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Delete</button>
+                <button className="btn btn-danger " onClick={()=> deleteVideoHandler(video._id)} style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Delete</button>
                 </div>
                 </div>
              )

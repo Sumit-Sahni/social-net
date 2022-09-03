@@ -31,7 +31,6 @@ const Event = () => {
   useEffect(() => {
         const fetchData = async () => {
           const data = await axios.get(`/api/events/`)
-          console.log(data.data);
           setEvents(data.data);
         }
         fetchData();
