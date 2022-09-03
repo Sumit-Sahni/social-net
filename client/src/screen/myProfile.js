@@ -166,13 +166,13 @@ const postDetail = (pic) =>{
          <>
           <HomeContainer>
         <Fragment>
-            <nav className="navbar navbar-expand-lg p-4" style={{boxShadow: "rgb(37 37 255 / 25%) 0px 50px 100px -20px, rgb(91 109 255 / 30%) 0px 30px 60px -30px",backgroundColor:"#181818"}}>
+            <nav className="navbar navbar-expand-lg p-4" style={{boxShadow: "rgb(37 37 255 / 0%) 0px 50px 100px -20px, rgb(91 109 255) 4px 30px 60px -40px",backgroundColor:"#181818"}}>
   <div className="container-fluid">
   <NavLink to="/welcome" className="navbar-brand text-white">Home</NavLink>
     <button className="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <div className="collapse text-white navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
         <button className="nav-link   bg-dark text-white " style={{border:"none"}} onClick={()=>{

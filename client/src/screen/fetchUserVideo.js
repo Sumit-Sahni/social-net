@@ -41,7 +41,7 @@ const FetchUserVideo =()=> {
                 <ReactPlayer
                 key={key}
                 url={video.videos}
-                width="90%"
+                width="80%"
                 height="40%"
                 controls={true}
                 className="mx-auto"

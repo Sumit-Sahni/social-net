@@ -6,18 +6,13 @@ import { useParams } from "react-router";
 import moment from "moment"; 
 import styled from "styled-components";
 import ReactPlayer from 'react-player';
-
+import FetchUserVideo from "./fetchUserVideo";
 
 
 
 const StyledProfile = styled.div`
-  background-color:#181818;
-  color:white;
-  
 `
 const DisplayVideo = styled.div`
-background-color:#363535;
-  
   @media (max-width: 768px) {
     display: flex;
     height:100%;
@@ -93,19 +88,19 @@ const ViewProfile = ({p}) => {
         {
             user.map((users, index) =>{
                 return(
-                    <StyledProfile className=" p-5" key={index}>
+                    <StyledProfile className=" mt-5 p-5" key={index}>
                         <div className="row justify-content-start ">
-                            <div className="col-md-12 col-lg-4 p-5 d-flex flex-column  ">
+                            <div className="col-md-12 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
                                 <img src={`${users.pic}`} alt={"img"} style={{width:"180px", height:"180px", borderRadius:"50%", objectFit:"cover"}}></img>
                                 </div>
                              <div className="d-flex flex-column  justify-content-center  my-2">
                                 <h5>{users.name}</h5>
-                                <p>Email : {users.email}</p>
+                                <p>Email: {users.email}</p>
                                 <div className="row " >
                                     <div className="col-md-10 d-flex flex-row   ">
                                       <div>
-                                      <p >Gender : {users.gender}</p>
+                                      <p >Gender: {users.gender}</p>
                                       </div>
                                         <div  style={{cursor:'pointer'}}> </div>
                                     </div>
@@ -114,7 +109,7 @@ const ViewProfile = ({p}) => {
                                 <div className="row">
                                     <div className="col-md-12 d-flex flex-row  ">
                                       <div>
-                                      <p >D.O.B : {moment(users.date).format("MMM Do YYYY")}</p>
+                                      <p >D.O.B: {moment(users.date).format("MMM Do YYYY")}</p>
                                       </div>
                                         <div  style={{cursor:'pointer'}}> </div>                                                                           
                                     </div>
@@ -122,7 +117,7 @@ const ViewProfile = ({p}) => {
                                 <div className="row ">
                                     <div className="col-md-12 d-flex flex-row  ">
                                       <div >
-                                        <p>About : {users.about}</p>
+                                        <p>About: {users.about}</p>
                                       </div>
                                         <div  style={{cursor:'pointer'}}></div>
                                     </div>
@@ -130,7 +125,7 @@ const ViewProfile = ({p}) => {
                                 <div className="row">
                                     <div className="col-md-12 d-flex flex-row ">
                                       <div>
-                                        <p>College : {users.college}</p>
+                                        <p>College: {users.college}</p>
                                       </div>
                                         <div  style={{cursor:'pointer'}}></div>
                                     </div>
@@ -191,9 +186,9 @@ const ViewProfile = ({p}) => {
             }) 
          }
         
-          <div className="">
+          <div className="container  pt-4">
            <div className="row">
-              <DisplayVideo className="col-lg-12  d-flex flex-row gap-2 p-4 ">
+              <DisplayVideo className="col-lg-12  d-flex flex-row gap-2 ">
              {
               uservideo.map((vid, key)=>{
                 return(
@@ -206,7 +201,7 @@ const ViewProfile = ({p}) => {
                      controls={true}
                      className="mx-auto"
                     />
-                     <h6 className='mt-2 mx-5 text-light '>{vid.title}</h6>
+                     <h6 className='mt-2 mx-5 '>{vid.title}</h6>
                  </div>
                 )
               })
