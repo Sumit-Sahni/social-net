@@ -32,7 +32,9 @@ const InnerPop = styled.div`
     
     @media (max-width:700px){
        width:100%;
-       height:50vh;
+       h5{
+        line-height:1.5rem
+      }
     }
   
    
