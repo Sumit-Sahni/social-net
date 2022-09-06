@@ -241,7 +241,7 @@ const RegisterScreen = () => {
           </div>
     </div>
       <button type="submit" className="btn btn-primary my-4 mx-4">Register</button>
-      <NavLink to="/"><button  className="btn btn-primary mx-2">Login</button></NavLink>
+      <NavLink to="/"><button  className="btn btn-primary mx-2">login</button></NavLink>
  </form>
     
   </Fragment>
