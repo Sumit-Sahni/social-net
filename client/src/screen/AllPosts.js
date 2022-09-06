@@ -3,8 +3,8 @@ import { useEffect, useState,} from "react";
 import axios from "axios";
 import moment from "moment";
 import { NavLink } from "react-router-dom";
-import MakeComment from "./makeComment";
 import styled from "styled-components";
+
 
 
 const StyleArticle = styled.div`
@@ -23,7 +23,7 @@ const AllPost = () => {
   console.log();
     const auth = localStorage.getItem("userInfo");
     const [posts, setPosts] = useState([])
-  
+   
 
   //  Get all posts from the database
 
@@ -50,6 +50,7 @@ const AllPost = () => {
 
    return(
        <>
+        
             {
                     posts.map((post, index)=>{
                   return( 

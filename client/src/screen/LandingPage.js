@@ -3,6 +3,7 @@ import  {useEffect, useState, Fragment} from "react";
 import axios from "axios";
 import styled from "styled-components";
 import LoginScreen from "./LoginScreen";
+import WelcomePopup from "./WelcomePopup";
 
 
 // const SinhgadFace = styled.div`
@@ -46,7 +47,13 @@ const LandingPage = () => {
     const [count, setCount] = useState(0);
     // const [modalOpen, setModalOpen] = useState(false);
 
+    const [buttonPopup, setButtonPopup] = useState(false);
 
+    useEffect(()=>{
+      setTimeout(()=>{
+          setButtonPopup(true)
+      },1000)
+      },[])
 
     useEffect(()=>{
       const getAllUsers = async () =>{
@@ -76,9 +83,8 @@ const LandingPage = () => {
             </nav>
              
          </Fragment>
-
+<WelcomePopup trigger={buttonPopup} setTrigger={setButtonPopup}/> 
          <div className="container mb-5">
-          
             <div className="row">
                 <div className="col-md-4 col-lg-4 col-12 d-flex flex-column  align-items-start">
                   <TotalUser>
@@ -111,8 +117,7 @@ const LandingPage = () => {
        <a href={"https://www.instagram.com/_sumitsahni/?hl=en"}><i className="fa fa-twitter  p-2"></i></a>
         </div>
         </div>
-        {/* {modalOpen && <AdminLogin setOpenModal={setModalOpen} />}
-        <button onClick={() =>{setModalOpen(true)}} type="button" className="btn btn-secondary">Admin</button> */}
+        
         </div>
 
         </footer>

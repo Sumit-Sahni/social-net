@@ -90,8 +90,8 @@ const RegisterScreen = () => {
                 console.log(data);
                 localStorage.setItem("userInfo", JSON.stringify(data));
                 setLoading(false);
-                alert("Registration Successful");
-                window.location.href = "/welcome"; 
+                alert("Registration Successful: Now You can login");
+               
                
                 
       }catch(error){
@@ -191,7 +191,7 @@ const RegisterScreen = () => {
            <input className="form-control w-70" id="about" aria-describedby="emailHelp"
                type="name" 
                 value={about}
-                placeholder="About"
+                placeholder="Student/Teacher/Prof/etc.."
                 onChange={(e)=> setAbout(e.target.value)}
               />
         </div>

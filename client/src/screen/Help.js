@@ -1,12 +1,20 @@
 import { NavLink} from "react-router-dom";
 import emailjs from "@emailjs/browser"
-import React, {useRef} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
+import Popup from "./PopUp";
 
 
 
 
 const Help = () => {
   const auth = localStorage.getItem("userInfo");
+  const [buttonPopup, setButtonPopup] = useState(false);
+
+  useEffect(()=>{
+  setTimeout(()=>{
+      setButtonPopup(true)
+  },1000)
+  },[])
 
    const form = useRef();
     const sendEmail = (e) =>{
@@ -26,6 +34,7 @@ const Help = () => {
          <>
           <nav className="navbar navbar-expand-lg bg-dark p-4 ">
   <div className="container-fluid">
+    
     <button className="navbar-toggler border " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon "></span>
     </button>
@@ -41,6 +50,8 @@ const Help = () => {
     
       </nav>  
             <div className="container">
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+            </Popup>
             <h1 className="py-4 mx-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Query</h1>
 
                 <form ref={form} onSubmit={sendEmail}>

@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Footer from "./footer";
 
 
+
+
 const ProfileScroll = styled.div`
  ::-webkit-scrollbar {
   width: 10px;
@@ -26,9 +28,10 @@ const ProfileScroll = styled.div`
 
 const HomeAndUsers = () => {
 
- 
+  
+
     return (
-       <>
+       <section>
            <div className="container ">
           <div className="row">
             <div  className="col-md-12 col-lg-4 col-12 " >
@@ -39,12 +42,12 @@ const HomeAndUsers = () => {
             
             <div className="col-md-12 col-lg-6 col-12 col-5  mt-3 ">
                 <h1 className="py-4 mx-2" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Timeline</h1>
-                  <AllPosts/>
+                 <AllPosts/>
             </div>
           </div>
           </div>
           <Footer/>
-       </>
+       </section>
     );
 }
 
