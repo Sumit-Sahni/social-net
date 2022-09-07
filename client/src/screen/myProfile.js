@@ -193,7 +193,7 @@ const postDetail = (pic) =>{
          {
             User.map((users, index) =>{
                 return(
-                    <StyledProfile className=" py-5 p-5" key={index}>
+                    <StyledProfile className=" py-5 p-4" key={index}>
                         <div className="row justify-content-start ">
                             <div className="col-md-6 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
@@ -280,13 +280,14 @@ const postDetail = (pic) =>{
 
                             </div>
                             </div>
-                            <div className="col-md-5 col-lg-4 py-3 ">
+                            <div className="col-md-5 col-lg-4 py-3  ">
                                 <AddPost/>
                             </div>
 
-                            <div className="col-md-5 col-lg-4 ">
+                            <div className="col-12 col-md-5 col-lg-4 pb-5 ">
                                 <h1 className="fs-2 text-center" style={{"font-family": `'Josefin Sans', 'sans-serif'`}} >Followers</h1>
                                 <FollowerScroll>
+                                
                                 {
                                   users_followers.map((users_followers, index) =>{
                                     return(
@@ -350,13 +351,13 @@ const postDetail = (pic) =>{
                         <div className="row justify-content-center mt-5">
                         <h1 className="text-center position-sticky pb-3">My Posts</h1>
                         <hr></hr>
-                        <div className="col-md-12 p-5 col-lg-12 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
+                        <div className="col-12 col-md-12 col-lg-10 " style={{"overflow-y": "auto", height: "60vh", border: "none"}}>
                             
                                   {
                                     Posts.map((post, index) =>{
                                         return(
                                           <div className="row justify-content-start " key={index}>
-                                          <div className="col-md-12 col-lg-12 p-2 d-flex flex-column  ">
+                                          <div className=" col-md-12 col-lg-12 p-2 d-flex flex-column">
                                               <div className="d-flex flex-row  justify-content-between  my-2">
                                                   <h5>{post.title}</h5>
                                                   <p>{moment(post.created_at).format("MMM Do YYYY")}</p>

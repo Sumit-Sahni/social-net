@@ -104,11 +104,16 @@ const FetchAllUsers = () => {
                             <NavLink to={`/viewprofile/${users._id}`}>
                                <button type="button" className="btn btn-secondary p-2 mx-1">View Profile</button>
                             </NavLink>
-                            {
-                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"#0d6efd"}}>Following</button>:<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1">Follow</button>
-                            }
-                            <button onClick={()=>handleUnFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1" >Unfollow</button>
-           
+                            { 
+                            users._id.includes(`${JSON.parse(auth)._id}`)?null:
+                        
+                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button  type="button" className="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"#0d6efd"}}>Following</button>:<button onClick={()=>handleFollow(users._id)} type="button" className="btn btn-secondary p-2 mx-1" style={{"backgroundColor":"green"}}>Follow</button>
+                           }
+                            { 
+                            users._id.includes(`${JSON.parse(auth)._id}`)?null:
+                        
+                            users.followers.includes(`${JSON.parse(auth)._id}`)?<button onClick={()=>handleUnFollow (users._id)} type="button" className="btn btn-secondary p-2 mx-1 bg-danger" >Unfollow</button>:null
+                           }
                </StyledProfile>
                
             )

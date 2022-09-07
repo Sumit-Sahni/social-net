@@ -37,20 +37,22 @@ const InnerPop = styled.div`
    
 `
 const Popup = (props) =>{
+  const auth = localStorage.getItem("userInfo");
+
    return(props.trigger)? (
       <PopContainer>
         <InnerPop >
           <div className="col-lg-12  p-5">
             <h5>
-            Hello folks!<br/>
-            If you have any queries.  You could send it here.<br/>
+            Hello {(JSON.parse(auth).name.charAt(0).toUpperCase()+JSON.parse(auth).name.slice(1))}.<br/>
+            If you have any queries.  You can send it here.<br/>
             Your Name: XYZ<br/>
             Subject: Account related<br/>
             Queries: I have a query regarding...<br/>
             </h5>
           </div>
           <div>
-            <button className="mb-4 btn btn-danger" onClick={()=>props.setTrigger(false)}>Close</button>
+            <button className="mb-5 btn btn-danger" onClick={()=>props.setTrigger(false)}>Close</button>
             </div>
         </InnerPop>
       </PopContainer>

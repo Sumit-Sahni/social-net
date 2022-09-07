@@ -27,7 +27,8 @@ const InnerPop = styled.div`
     align-items:center;
     border-radius:15px;
     h5{
-      line-height:2.2rem
+      line-height:2rem;
+      font-family: "Josefin Sans", "sans-serif";
     }
     
     @media (max-width:700px){
@@ -43,9 +44,11 @@ const WelcomePopup = (props) =>{
    return(props.trigger)? (
       <PopContainer>
         <InnerPop >
-          <div className="col-lg-12  p-5">
+          <div className="col-lg-12  p-4">
             <h5>
-            Hello folks! <br/>This page is just for community purposes I urge you all to share this link [ https://sinhgad-net.herokuapp.com/ ] among other students (SIOM College Only). By doing we could create a better student community to help each other on various platforms. Thank You.
+            Hello User! <br/>This page is just for community purposes I urge you all to share this link<br/>
+             [ https://sinhgad-net.herokuapp.com/ ] among other students (SIOM College Only).<br/> By doing we could create a better student community to help each other on various platforms.<br/>
+             More Updates Yet to come.<br/> Thank You.
             </h5>
           </div>
           <div>
