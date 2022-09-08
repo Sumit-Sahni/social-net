@@ -163,7 +163,7 @@ const RegisterScreen = () => {
           <input className="form-control w-70" id="file"
              onChange={(e)=> postDetail(e.target.files[0])}
              type="file"
-             placeholder="Profile Picture"
+             placeholder="Profile Picture Passport Size"
           />  
         </div>
 

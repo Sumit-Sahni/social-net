@@ -197,7 +197,7 @@ const postDetail = (pic) =>{
                         <div className="row justify-content-start ">
                             <div className="col-md-6 col-lg-4 p-2 d-flex flex-column  ">
                                 <div>
-                                <img src={`${users.pic}`} alt={"img"} style={{width:"180px", height:"180px", borderRadius:"50%", objectFit:"cover"}}></img>
+                                <img src={`${users.pic}`} alt={"img"} style={{width:"180px", height:"180px", borderRadius:"50%", objectFit:"contain", border:"1px solid white"}}></img>
                                 </div>
                                
                             <div className="d-flex flex-column  justify-content-center  my-2">

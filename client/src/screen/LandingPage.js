@@ -52,7 +52,7 @@ const LandingPage = () => {
     useEffect(()=>{
       setTimeout(()=>{
           setButtonPopup(true)
-      },3000)
+      },4000)
       },[])
 
     useEffect(()=>{
