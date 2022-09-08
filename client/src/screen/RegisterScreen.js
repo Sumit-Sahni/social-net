@@ -91,27 +91,19 @@ const RegisterScreen = () => {
                 localStorage.setItem("userInfo", JSON.stringify(data));
                 setLoading(false);
                 alert("Registration Successful: Now You can login");
+                window.location.reload()
+
                
                
                 
       }catch(error){
             setLoading(false);
-            alert("Check Your Email and Password & Every field is required");
-            window.location.reload()
+            alert("Every field is required ");
  
         }
         
       }
-        setName("");
-        setEmail("");
-        setPassword("");
-        setConform("");
-        setpic("");
-        setPhone("");
-        setDate("");
-        setGender("");
-        setCollege(""); 
-        setAbout(""); 
+         
     }
 
        
