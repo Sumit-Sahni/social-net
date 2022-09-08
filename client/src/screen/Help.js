@@ -56,19 +56,19 @@ const Help = () => {
 
                 <form ref={form} onSubmit={sendEmail}>
                     <div className="row pt-5 mx-auto">
-                        <div className="col-8 form-group mx-auto">
+                        <div className="col-lg-8 col-12  form-group mx-auto">
                           <input type="text" className="form-control" placeholder="Your Name" name="name"/>
                         </div>
-                        <div className="col-8 form-group pt-2 mx-auto d-lg-none d-none">
+                        <div className="col-lg-8 col-12  form-group pt-2 mx-auto d-lg-none d-none">
                           <input value={`${JSON.parse(auth).email}`} type="email" className="form-control" placeholder="Your Email Address" name="email"/>
                         </div>
-                        <div className="col-8 form-group pt-2  mx-auto">
+                        <div className="col-lg-8 col-12  form-group pt-2  mx-auto">
                           <input type="text" className="form-control" placeholder="Subject" name="subject"/>
                         </div>
-                        <div className="col-8 form-group pt-2  mx-auto">
+                        <div className="col-lg-8 col-12  form-group pt-2  mx-auto">
                             <textarea className="form-control" placeholder="Your Query" name="message"></textarea>
                         </div>
-                        <div className="col-8 form-group pt-3  mx-auto">
+                        <div className="col-lg-8 col-12  form-group pt-3  mx-auto">
                         <button type="submit"  className="btn btn-primary">Submit</button>
                         </div>
                     </div>
