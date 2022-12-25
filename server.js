@@ -58,7 +58,7 @@ app.use('/api/videos', videoRoutes);
    
    
      
-    app.get('/*', (req, res) => {
+    app.get('**', (req, res) => {
           res.sendFile(path.join(__dirname, 'client/build/index.html')),
           function(err){
              res.status(500).send(err);
