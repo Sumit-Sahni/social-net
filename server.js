@@ -62,8 +62,7 @@ app.use('/api/videos', videoRoutes);
           res.sendFile(path.join(__dirname, 'client/build/index.html')),
           function(err){
              res.status(500).send(err);
-          }
-      });
+          }});
      
 
 const PORT = process.env.PORT;  

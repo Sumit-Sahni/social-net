@@ -17,7 +17,7 @@ const VideoLoading = () => {
               <div>
                 <h5>Your Video is being Loading... </h5>
               </div>
-              <div className="lds-ring mx-2 "><div></div><div></div><div></div><div></div></div>
+              <div className="lds-ring mx-2"><div></div><div></div><div></div><div></div></div>
            </DisplayVideo>
         </div>
     
