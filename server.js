@@ -57,9 +57,9 @@ app.use('/api/videos', videoRoutes);
 // _________________________________Deployment to Cyclic________________________________________
    
    
-     
-    app.get('**', (req, res) => {
-          res.sendFile(path.join(__dirname, 'client/build/index.html')),
+     app.use(express.static(path.join(__dirname, "./client/build")))
+    app.get('*', (req, res) => {
+          res.sendFile(path.join(__dirname, './client/build/index.html')),
           function(err){
              res.status(500).send(err);
           }});
