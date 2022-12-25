@@ -25,7 +25,6 @@ app.use(cors(
 ));
 
 app.use(express.json());
-app.use('/public', express.static(path.join(__dirname, 'public')));
 // app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);
 app.use(bodyParser.urlencoded({ extended: false })); 
@@ -36,7 +35,7 @@ app.get('/notes/:id', (req, res) => {
      })
      res.send(note);
 });
-// app.use("/public", express.static(path.join(__dirname, 'public')));
+
 app.use('/api/users',userRoutes);
 app.use('/allusers',userRoutes);
 app.use('/api/users/:id',userRoutes);
