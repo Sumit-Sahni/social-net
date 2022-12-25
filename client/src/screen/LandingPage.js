@@ -59,6 +59,7 @@ const LandingPage = () => {
       const getAllUsers = async () =>{
         const {data} = await axios.get("/allusers")
         setCount(data.data.length)
+       
      }
       getAllUsers();
     },[])

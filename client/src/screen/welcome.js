@@ -16,14 +16,11 @@ const Welcome = () => {
 
   const [event, SetEvent] = useState(false); 
   const auth = localStorage.getItem("userInfo");
-  
-
-
 
      return (
      <Home>
        
-      <nav className="navbar navbar-expand-lg bg-dark p-4 ">
+      <nav className="navbar navbar-expand-lg bg-dark p-4 " >
   <div className="container-fluid">
   <NavLink to={`myprofile/${JSON.parse(auth)._id}`} className="nav-link text-white">@{(JSON.parse(auth).name.charAt(0).toUpperCase()+JSON.parse(auth).name.slice(1))}</NavLink>
   <NavLink to="/Event" className="nav-link text-white mx-2">Events</NavLink>
