@@ -5,14 +5,14 @@ const cors = require('cors');
 const notes = require('./data/node.js');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
-const connectDB = require("./config/db");
+const connectDB = require("./config/db")
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 const videoRoutes = require('./routes/videoRoutes');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
+// const fs = require('fs');
 
 
 
@@ -54,20 +54,17 @@ app.use('/api/events', eventRoutes);
 app.use('/api/videos', videoRoutes);
 
 
-// _________________________________Deployment to Heroku________________________________________
+// _________________________________Deployment to Cyclic________________________________________
    
-    if (process.env.NODE_ENV === 'production') {
-        app.use(express.static(path.join(__dirname, 'client/build')));
-        
-        app.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname, 'client/build/index.html'));
-        });
-    }else{
-        app.get("/",(req,res)=>{
-          res.send("APi is running")
-        } )
-    }
-
+   
+     
+    app.get('/*', (req, res) => {
+          res.sendFile(path.join(__dirname, 'client/build/index.html')),
+          function(err){
+             res.status(500).send(err);
+          }
+      });
+     
 
 const PORT = process.env.PORT;  
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
