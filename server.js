@@ -35,9 +35,7 @@ app.get('/notes/:id', (req, res) => {
      res.send(note);
 });
 
-app.get('/', (req, res) => {
-     res.send('Welcome')
-});
+
 app.use('/api/users',userRoutes);
 app.use('/allusers',userRoutes);
 app.use('/api/users/:id',userRoutes);
@@ -57,9 +55,9 @@ app.use('/api/videos', videoRoutes);
 
 // _________________________________Deployment to Cyclic________________________________________
    
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "development") {
   app.use(express.static(path.join(__dirname, "/client/build")));
 
   app.get("*", (req, res) =>
