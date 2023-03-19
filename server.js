@@ -19,8 +19,9 @@ const path = require('path');
 dotenv.config();
 connectDB();
 
-app.use(cors(
-
+app.use(cors({
+   origin:['http://localhost:3000', "https://social-net-z589.onrender.com"]
+}
 ));
 
 app.use(express.json());
