@@ -35,6 +35,9 @@ app.get('/notes/:id', (req, res) => {
      res.send(note);
 });
 
+app.get('/', (req, res) => {
+     res.send('Welcome')
+});
 app.use('/api/users',userRoutes);
 app.use('/allusers',userRoutes);
 app.use('/api/users/:id',userRoutes);
