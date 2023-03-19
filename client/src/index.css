@@ -1,3 +1,5 @@
+Content-Security-Policy: default-src 'self'; font-src 'self' https://social-net-z589.onrender.com;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
