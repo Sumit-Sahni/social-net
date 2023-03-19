@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 const notes = require('./data/node.js');
@@ -55,14 +54,8 @@ app.use('/api/videos', videoRoutes);
 
 // _________________________________Deployment to Cyclic________________________________________
    
-   
-     app.use(express.static(path.join(__dirname, "./client/build")))
-     app.get('*', (req, res) => {
-          res.sendFile(path.join(__dirname, './0.html')),
-          function(err){
-             res.status(500).send(err); 
-          }});
-     
+
+
 
 const PORT = process.env.PORT;  
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
