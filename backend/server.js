@@ -8,10 +8,7 @@ const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 const videoRoutes = require('./routes/videoRoutes');
-const multer = require('multer');
 const path = require('path');
-// const fs = require('fs');
-
 
 
 
